@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://noblestaspiration.net/"/>
-  <updated>2018-03-18T09:03:55.479Z</updated>
+  <updated>2018-03-19T09:34:25.216Z</updated>
   <id>http://noblestaspiration.net/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://noblestaspiration.net/2018/03/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <id>http://noblestaspiration.net/2018/03/15/第一篇文章/</id>
     <published>2018-03-15T14:17:57.454Z</published>
-    <updated>2018-03-18T09:03:55.479Z</updated>
+    <updated>2018-03-19T09:34:25.216Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="thankyou！"><a href="#thankyou！" class="headerlink" title="thankyou！"></a>thankyou！</h1><hr><p>tag：aaa</p><p>早在前年博客已经搭好了，但是各种原因一直搁置没写文章，昨天在亮哥的帮助下，又找回了属于我的博客！</p><p>这篇文章用来感恩每个时刻陪我走过任何一段路途的人，想说的很多，慢慢来写。java，vim，C，C++</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="thankyou！"><a href="#thankyou！" class="headerlink" title="thankyou！"></a>thankyou！</h1><hr><p>tag：aaa</p><p>。java，vim，C，C++</p><p>makedown语法</p>]]></content>
     
     <summary type="html">
     
@@ -31,7 +31,8 @@
       
         &lt;h1 id=&quot;thankyou！&quot;&gt;&lt;a href=&quot;#thankyou！&quot; class=&quot;headerlink&quot; title=&quot;thankyou！&quot;&gt;&lt;/a&gt;thankyou！&lt;/h1&gt;&lt;hr&gt;
 &lt;p&gt;tag：aaa&lt;/p&gt;
-&lt;p&gt;早在前年博客已经搭好了，但是各种原因一直搁置
+&lt;p&gt;。java，vim，C，C++&lt;/p&gt;
+&lt;p
       
     
     </summary>
