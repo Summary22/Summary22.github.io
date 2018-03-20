@@ -1665,7 +1665,7 @@ pre .javascript .function {
   padding: 0.5em 1em;
   border: 1px solid #d3d3d3;
   font-size: 0.93rem;
-  line-height: 1em;
+  line-height: 0.1em;
   word-break: break-all;
   background: rgba(255,255,255,0.4);
 }
@@ -1674,7 +1674,7 @@ pre .javascript .function {
 }
 .my_post_copyright span {
   display: inline-block;
-  width: 5.2em;
+  width: 1.2em;
   color: #b5b5b5;
   font-weight: bold;
 }
@@ -1873,7 +1873,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8f12ac;
+  background: #ffc681;
 }
 .links-of-blogroll {
   font-size: 13px;
