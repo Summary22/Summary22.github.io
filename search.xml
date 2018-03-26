@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Windows下搭建OC环境]]></title>
+    <url>%2F2018%2F03%2F26%2FWindows%E4%B8%8B%E6%90%AD%E5%BB%BAOC%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[一.安装Objective-C编译器需安装文件地址：链接 ，密码是：lm8y 1.先安装OC的编译器，这里使用的是GNUstep，安装次序为：gnustep-msys-system、gnustep-core、gnustep-devel 2.接着安装IDE，选择codeblocks作为IDE 二.配置开发环境 1.先进入setting-&gt;Compiler anddebugger…,进去之后选择GUN GCC Compiler，按copy按钮，将其重新命名为GUNstep MinGW Compiler，如下图： 这里一定要将selected compiler选择到GUNstep MinGW Compiler，然后点击set as default。勾选如图的两个选项。 2.然后在compiler flags旁边的other compiler options里面添加这句话：-fconstant-string-class=NSConstantString -std=c99 3.在linker setting中添加两个链接，分别链接到libgnustep-base.dll.a和libobjc.dll.a，我的GUNstep是安装在D盘，所以路径依次是：D:\GNUstep\GNUstep\System\Library\Libraries\libgnustep-base.dll.a 和D:\GNUstep\GNUstep\System\Library\Libraries\libobjc.dll.a 如下图： 4.指定搜索目录，Search directories，这里有两处需要指定，第一是compiler，将其设置为D:\GNUstep\GNUstep\System\Library\Headers 第二处是linker，将其设置为D:\GNUstep\GNUstep\System\Library\Libraries 这两个不能写为同一个路径。如下图： 三、添加Objective-C文件支持类型 进入Settings-&gt;Environment…，选择Files extension handling 添加*.m。如图： 然后新建一个项目，在project-&gt;project tree-&gt;categories…下面将*.m添加到source下，一定要注意前面使用; 分号分开的，如下图： 进入Settings-&gt;Editor…，选择Syntaxhighlighting，点击Filemasks….按钮，在弹出框尾部添加*.m 到文件类型。如图： 然后点击Keywords…按钮 (紧靠Filemasks…按钮) 添加下面Objective-C的关键字到EditKeywords列表中。如图： @interface @implementation @end @class @selector @protocol @public @protected @private id BOOL YES NO SEL nil NULL self 这就大体完成了。 测试部分 测试代码如下： 123456789101112131415#import &lt;Foundation/Foundation.h&gt;int main (int argc, const char *argv[])&#123; NSAutoreleasePool *pool =[[NSAutoreleasePool alloc] init]; NSLog(@"%@",@"hello world"); [pool drain]; return 0;&#125; 测试之前要在工程目录下新建一个.m文件，然后在编译器中右键这个文件，选择两个选项，如下图：]]></content>
+      <categories>
+        <category>Stall IDE</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Objective-C</tag>
+        <tag>GNUstep</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一点makedown]]></title>
-    <url>%2F2018%2F03%2F15%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
+    <url>%2F2018%2F03%2F15%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0-makedown%2F</url>
     <content type="text"><![CDATA[先写一点自己可能用得上的语法 有几个#号就是几级标题 一级二级三级四级 这是&gt;加空格 两个&gt;加空格 一个号加空格表示强调，可以在句中表示强调不过要以什么符号开始，就以什么结束，例子这个是星号*，如果回车还是一样的格式，不想这样要这个格式，那就再回车一下 回车再*号就会是空心小圆圈 一个-减号也是一个小黑点这样 像这样-–，***变成一个分隔符 链接有两种形式： 行内式：链接可以用[]加上()这样来书写，[]中间写链接内容，()中间写链接地址 ​ 我博客链接 参考式：两个[]连起来 例子:我的博客 &lt;noblestaspiration.net&gt; 自动链接 三个`这个符号是代码区，紧跟在三个符号后面的是语言类型，可以写Python或者C啊这些 1234567#include&lt;iostream&gt;using namespace std;int main()&#123; cout&lt;&lt;111111&lt;&lt;endl; return 0;&#125; 两个``中间写的内容会变成其他颜色，但是第一个符号要加上空格 这就是其他颜色 插入图片是![]（）其中[]中填的是图片名称，后面写的是路径加上图片的名称，名称一定要加上类型，比如.jpg什么的，下面插一张图片 这里是内容 一对&lt;&gt;里面写blockquote class=”blockquote-center”这是搞一个像留言板下面那样的一个区域然后后面再加上一对&lt;&gt;里面写/blockquote这样就行了 另外\反斜杠可以帮助插其他符号，下面的就是前面已经加上反斜杠了 + ` * _ {} [] () # + - . !]]></content>
       <categories>
         <category>学习</category>

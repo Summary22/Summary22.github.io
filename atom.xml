@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://noblestaspiration.net/"/>
-  <updated>2018-03-26T03:01:22.108Z</updated>
+  <updated>2018-03-26T10:06:48.049Z</updated>
   <id>http://noblestaspiration.net/</id>
   
   <author>
@@ -17,9 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Windows下搭建OC环境</title>
+    <link href="http://noblestaspiration.net/2018/03/26/Windows%E4%B8%8B%E6%90%AD%E5%BB%BAOC%E7%8E%AF%E5%A2%83/"/>
+    <id>http://noblestaspiration.net/2018/03/26/Windows下搭建OC环境/</id>
+    <published>2018-03-26T08:23:07.368Z</published>
+    <updated>2018-03-26T10:06:48.049Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一-安装Objective-C编译器"><a href="#一-安装Objective-C编译器" class="headerlink" title="一.安装Objective-C编译器"></a>一.安装Objective-C编译器</h1><p>需安装文件地址：<a href="https://pan.baidu.com/s/1qkS-7_EBuj4ofd9gHtdHcA" target="_blank" rel="noopener">链接</a> ，密码是：lm8y</p><ul><li>1.先安装OC的编译器，这里使用的是GNUstep，安装次序为：gnustep-msys-system、gnustep-core、gnustep-devel</li><li>2.接着安装IDE，选择codeblocks作为IDE</li></ul><a id="more"></a><h1 id="二-配置开发环境"><a href="#二-配置开发环境" class="headerlink" title="二.配置开发环境"></a>二.配置开发环境</h1><ul><li>1.先进入<strong>setting-&gt;Compiler anddebugger…</strong>,进去之后选择<strong>GUN GCC Compiler</strong>，按<strong>copy</strong>按钮，将其重新命名为<strong>GUNstep MinGW Compiler</strong>，如下图：</li></ul><p><img src="D:\MyBlog\hexo\source\image\1.jpg" alt="第一步"></p><p>这里一定要将<strong>selected compiler</strong>选择到<strong>GUNstep MinGW Compiler</strong>，然后点击<strong>set as default</strong>。勾选如图的两个选项。</p><ul><li>2.然后在<strong>compiler flags</strong>旁边的<strong>other compiler options</strong>里面添加这句话：<strong>-fconstant-string-class=NSConstantString -std=c99 </strong></li><li>3.在linker setting中添加两个链接，分别链接到<strong>libgnustep-base.dll.a</strong>和<strong>libobjc.dll.a</strong>，我的<strong>GUNstep</strong>是安装在D盘，所以路径依次是：<code>D:\GNUstep\GNUstep\System\Library\Libraries\libgnustep-base.dll.a</code> 和<code>D:\GNUstep\GNUstep\System\Library\Libraries\libobjc.dll.a</code> 如下图：</li></ul><p><img src="D:\MyBlog\hexo\source\image\2.jpg" alt="链接文件"></p><ul><li>4.指定搜索目录，<strong>Search directories</strong>，这里有两处需要指定，第一是<strong>compiler</strong>，将其设置为<code>D:\GNUstep\GNUstep\System\Library\Headers</code> 第二处是linker，将其设置为<code>D:\GNUstep\GNUstep\System\Library\Libraries</code> 这两个不能写为同一个路径。如下图：</li></ul><p><img src="D:\MyBlog\hexo\source\image\3.jpg" alt="设置搜索路径"></p><p><img src="D:\MyBlog\hexo\source\image\4.jpg" alt="设置搜索路径"></p><h1 id="三、添加Objective-C文件支持类型"><a href="#三、添加Objective-C文件支持类型" class="headerlink" title="三、添加Objective-C文件支持类型"></a>三、添加Objective-C文件支持类型</h1><ul><li><p>进入<strong>Settings-&gt;Environment…</strong>，选择<strong>Files extension handling</strong> 添加<strong>*.m</strong>。如图：</p><p><img src="D:\MyBlog\hexo\source\image\5.jpg" alt="添加.m文件"></p></li><li><p>然后新建一个项目，在<strong>project-&gt;project tree-&gt;categories…</strong>下面将<strong>*.m</strong>添加到<strong>source</strong>下，一定要注意前面使用<code>;</code> 分号分开的，如下图：</p></li></ul><p><img src="D:\MyBlog\hexo\source\image\6.jpg" alt="添加.m文件"></p><ul><li>进入<strong>Settings-&gt;Editor…</strong>，选择<strong>Syntaxhighlighting</strong>，点击<strong>Filemasks….</strong>按钮，在弹出框尾部添加*.m 到文件类型。如图：</li></ul><p><img src="D:\MyBlog\hexo\source\image\7.jpg" alt="添加.m文件"></p><p>然后点击<strong>Keywords…</strong>按钮 (紧靠<strong>Filemasks…</strong>按钮) 添加下面<strong>Objective-C</strong>的关键字到<strong>EditKeywords</strong>列表中。如图：</p><hr><p><strong>@interface @implementation @end  @class @selector @protocol @public @protected @private id BOOL YES NO SEL nil  NULL self</strong></p><hr><p><img src="D:\MyBlog\hexo\source\image\8.jpg" alt="添加.m文件"></p><p>这就大体完成了。</p><h1 id="测试部分"><a href="#测试部分" class="headerlink" title="测试部分"></a>测试部分</h1><ul><li>测试代码如下：</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    NSAutoreleasePool *pool =[[NSAutoreleasePool alloc] init];</span><br><span class="line"></span><br><span class="line">    NSLog(@<span class="string">"%@"</span>,@<span class="string">"hello world"</span>);</span><br><span class="line"></span><br><span class="line">    [pool drain];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>测试之前要在工程目录下新建一个.m文件，然后在编译器中右键这个文件，选择两个选项，如下图：</p><p><img src="D:\MyBlog\hexo\source\image\9.jpg" alt="测试"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一-安装Objective-C编译器&quot;&gt;&lt;a href=&quot;#一-安装Objective-C编译器&quot; class=&quot;headerlink&quot; title=&quot;一.安装Objective-C编译器&quot;&gt;&lt;/a&gt;一.安装Objective-C编译器&lt;/h1&gt;&lt;p&gt;需安装文件地址：&lt;a href=&quot;https://pan.baidu.com/s/1qkS-7_EBuj4ofd9gHtdHcA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt; ，密码是：lm8y&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.先安装OC的编译器，这里使用的是GNUstep，安装次序为：gnustep-msys-system、gnustep-core、gnustep-devel&lt;/li&gt;
+&lt;li&gt;2.接着安装IDE，选择codeblocks作为IDE&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Stall IDE" scheme="http://noblestaspiration.net/categories/Stall-IDE/"/>
+    
+    
+      <category term="Windows" scheme="http://noblestaspiration.net/tags/Windows/"/>
+    
+      <category term="Objective-C" scheme="http://noblestaspiration.net/tags/Objective-C/"/>
+    
+      <category term="GNUstep" scheme="http://noblestaspiration.net/tags/GNUstep/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一点makedown</title>
-    <link href="http://noblestaspiration.net/2018/03/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://noblestaspiration.net/2018/03/15/第一篇文章/</id>
+    <link href="http://noblestaspiration.net/2018/03/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0-makedown/"/>
+    <id>http://noblestaspiration.net/2018/03/15/第一篇文章-makedown/</id>
     <published>2018-03-15T14:17:57.454Z</published>
     <updated>2018-03-26T03:01:22.108Z</updated>
     
