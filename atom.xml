@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://noblestaspiration.net/"/>
-  <updated>2018-04-03T13:11:46.381Z</updated>
+  <updated>2018-04-04T03:40:38.904Z</updated>
   <id>http://noblestaspiration.net/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://noblestaspiration.net/2018/04/02/Crack01/"/>
     <id>http://noblestaspiration.net/2018/04/02/Crack01/</id>
     <published>2018-04-02T13:41:07.465Z</published>
-    <updated>2018-04-03T13:11:46.381Z</updated>
+    <updated>2018-04-04T03:40:38.904Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Crack01-Acid-burn"><a href="#Crack01-Acid-burn" class="headerlink" title="Crack01-Acid_burn"></a>Crack01-Acid_burn</h1><h2 id="关于题目"><a href="#关于题目" class="headerlink" title="关于题目"></a>关于题目</h2><ul><li>所用工具为OllyDBG，开始想用IDA，但是发现并不适合动态调试（也许将来打脸）。</li><li>题目中需要破解的是两个序列号，一个是一串字符，一个是两串，一串字符的往往是硬编码在程序内部，而两串的可以通过一定计算设计得复杂一点，通过研读指令才能破解。注册机需要完全理解汇编指令才能编写，注册机晚些在补。（截图之后再补2018.4.2）</li></ul><a id="more"></a><h2 id="破解过程"><a href="#破解过程" class="headerlink" title="破解过程"></a>破解过程</h2><ul><li>先用ODBG把程序运行起来，通过F8找到第一个弹框所调用的指令，然后F7单步进去，Ctrl+F8进一步定位弹框的位置，这一题，刚开始的弹框可有可无，可以迅速点击确定，然后继续点击Ctrl+F8继续运行，直到弹出下一个Form，这时候选择一个串那个，点进去，随便输一串，然后点击check，这时候，之前标记的断点起到作用了，当你看到call  jmp User32.messagebox的时候，看主模块的堆栈区，找到离他最近的一个返回，右键进入反汇编，然后你会看到略微熟悉的UnIcode编码提醒，最后找到push ebp   mov  ebp  esp，这两条指令，这两条指令是建立栈帧，然后往下寻找，找到JNZ，右键二进制，nop填充，这就破解完了，同理，两串的也是这样破解，但是这样破解唯一一点不好的地方就是不管你输什么进去都能进入，最好的方法是写注册机，这样会强大很多，这个后续一定会补上，截图后面也会补上。</li><li>这里还有第二种方法，比上面方法简单一些，我选用上面方法是因为根据<a href="https://www.52pojie.cn/thread-264393-1-1.html" target="_blank" rel="noopener">参考网址</a> ，我的显示不了低地址的messagebox，无法去查找返回地址，然后我重新在虚拟机装了win7，这时候可以看见了，直接运行到弹出出错的form，然后去查找低地址的messagebox，右键查看调用，在这个call打断，然后继续点击check，这时候会停在断点，然后在主模块区的堆栈区找到第一条返回语句，然后右键查看反汇编，进去找一条JNZ的汇编语句，这时候看左边的实线，会看见跳转到sorry..的Unicode，Unicode语句在右边查看，将这句nop填充即可。</li><li>**这里要注一下JNZ和JZ的区别，JNZ结果不为零则跳转，JZ领标志为1就跳转。</li></ul><ul><li>第一次破解成功，虽然不知道原理，看不懂指令，完全按照网上攻略来的，但是环境可能和网上不太一样，导致利用一天时间摸索才完整完成。</li><li>发现问题：当点击左边两串，先输入一些字符，破解会失败，比如第一行输入123，第二行输入qwe，注册不会成功，这是因为程序本身在设计的时候就不允许输入字符少于三位。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Crack01-Acid-burn"><a href="#Crack01-Acid-burn" class="headerlink" title="Crack01-Acid_burn"></a>Crack01-Acid_burn</h1><h2 id="关于题目"><a href="#关于题目" class="headerlink" title="关于题目"></a>关于题目</h2><ul><li>所用工具为OllyDBG，开始想用IDA，但是发现并不适合动态调试（也许将来打脸）。</li><li>题目中需要破解的是两个序列号，一个是一串字符，一个是两串，一串字符的往往是硬编码在程序内部，而两串的可以通过一定计算设计得复杂一点，通过研读指令才能破解。注册机需要完全理解汇编指令才能编写，注册机晚些在补。（截图之后再补2018.4.2）</li></ul><a id="more"></a><h2 id="破解过程"><a href="#破解过程" class="headerlink" title="破解过程"></a>破解过程</h2><ul><li>先用ODBG把程序运行起来，通过F8找到第一个弹框所调用的指令，然后F7单步进去，Ctrl+F8进一步定位弹框的位置，这一题，刚开始的弹框可有可无，可以迅速点击确定，然后继续点击Ctrl+F8继续运行，直到弹出下一个Form，这时候选择一个串那个，点进去，随便输一串，然后点击check，这时候，之前标记的断点起到作用了，当你看到call  jmp User32.messagebox的时候，看主模块的堆栈区，找到离他最近的一个返回，右键进入反汇编，然后你会看到略微熟悉的UnIcode编码提醒，最后找到push ebp   mov  ebp  esp，这两条指令，这两条指令是建立栈帧，然后往下寻找，找到JNZ，右键二进制，nop填充，这就破解完了，同理，两串的也是这样破解，但是这样破解唯一一点不好的地方就是不管你输什么进去都能进入，最好的方法是写注册机，这样会强大很多，这个后续一定会补上，截图后面也会补上。</li><li>这里还有第二种方法，比上面方法简单一些，我选用上面方法是因为根据<a href="https://www.52pojie.cn/thread-264393-1-1.html" target="_blank" rel="noopener">参考网址</a> ，我的显示不了低地址的messagebox，无法去查找返回地址，然后我重新在虚拟机装了win7，这时候可以看见了，直接运行到弹出出错的form，然后去查找低地址的messagebox，右键查看调用，在这个call打断，然后继续点击check，这时候会停在断点，然后在主模块区的堆栈区找到第一条返回语句，然后右键查看反汇编，进去找一条JNZ的汇编语句，这时候看左边的实线，会看见跳转到sorry..的Unicode，Unicode语句在右边查看，将这句nop填充即可。</li></ul><h2 id="一点知识"><a href="#一点知识" class="headerlink" title="一点知识"></a>一点知识</h2><h3 id="题目相关"><a href="#题目相关" class="headerlink" title="题目相关"></a>题目相关</h3><ul><li>发现问题：当点击左边两串，先输入一些字符，破解会失败，比如第一行输入123，第二行输入qwe，注册不会成功，这是因为程序本身在设计的时候就不允许输入字符少于三位。</li></ul><h3 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h3><ul><li>JE，JNE，JNZ和JZ的区别，JE（jump equal）相等则跳转，JNE（jump not equal）不相等则跳转，JNZ结果不为零则跳转，JZ零标志为1就跳转。</li><li>[test和cmp的区别][<a href="https://blog.csdn.net/thanklife/article/details/11067731]" target="_blank" rel="noopener">https://blog.csdn.net/thanklife/article/details/11067731]</a> </li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>选择破解完01的时候，第二个选择破解09，当面对的是跳出成功和失败的页面的时候，往往可以通过先OB打开程序，先运行到密码输入错误界面，然后alt+k查看堆栈，找到massagebox查看调用，然后寻找跳转成功和失败的指令，nop掉失败的指令就爆破成功</strong></p>]]></content>
     
     <summary type="html">
     
@@ -125,9 +125,9 @@
       <category term="Stall IDE" scheme="http://noblestaspiration.net/categories/Stall-IDE/"/>
     
     
-      <category term="Windows" scheme="http://noblestaspiration.net/tags/Windows/"/>
-    
       <category term="Objective-C" scheme="http://noblestaspiration.net/tags/Objective-C/"/>
+    
+      <category term="Windows" scheme="http://noblestaspiration.net/tags/Windows/"/>
     
       <category term="GNUstep" scheme="http://noblestaspiration.net/tags/GNUstep/"/>
     
