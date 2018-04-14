@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="Crack001-Acid_burn关于题目 所用工具为OllyDBG，开始想用IDA，但是发现并不适合动态调试（也许将来打脸）。 题目中需要破解的是两个序列号，一个是一串字符，一个是两串，一串字符的往往是硬编码在程序内部，而两串的可以通过一定计算设计得复杂一点，通过研读指令才能破解。注册机需要完全理解汇编指令才能编写，注册机晚些在补。（截图之后再补2018.4.2）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-06T12:15:59.792Z">
+<meta property="og:updated_time" content="2018-04-07T01:54:41.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Crack001">
 <meta name="twitter:description" content="Crack001-Acid_burn关于题目 所用工具为OllyDBG，开始想用IDA，但是发现并不适合动态调试（也许将来打脸）。 题目中需要破解的是两个序列号，一个是一串字符，一个是两串，一串字符的往往是硬编码在程序内部，而两串的可以通过一定计算设计得复杂一点，通过研读指令才能破解。注册机需要完全理解汇编指令才能编写，注册机晚些在补。（截图之后再补2018.4.2）">
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,643
+                  1,637
                 </span>
               
 
@@ -488,12 +488,14 @@
 <li>[test和cmp的区别][<a href="https://blog.csdn.net/thanklife/article/details/11067731]" target="_blank" rel="noopener">https://blog.csdn.net/thanklife/article/details/11067731]</a> </li>
 <li>给出<a href="http://www.cnblogs.com/bbdxf/p/3793545.html" target="_blank" rel="noopener">VB反汇编参考</a> </li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>1.选择破解完01的时候，第二个选择破解09，当面对的是跳出成功和失败的页面的时候，往往可以通过先OD打开程序，先运行到密码输入错误界面，然后alt+k查看堆栈，找到massagebox查看调用，然后寻找跳转成功和失败的指令，nop掉失败的指令就爆破成功，随后的13题会单独写一篇</strong></p>
-<p><strong>2.再来说08,08破解的方法和09很相似，有两种方法可选，第一是和09一样，运行程序直至出错，回到OD，按F12，然后去alt+K去堆栈看messageBox，查看调用（show call），然后在主模块的堆栈区，这时候一定要看提示的Unicode语句在主模块堆栈地址是否在程序领空，如果在领空的话，离他最近return右键看反汇编，上下翻动看到成功和失败的Unicode，然后查找跳转到失败的je，jNz等语句，让NOP掉这条指令就爆了，第二种方法，由于程序是VB，所以可以利用其API，BreakPoint -&gt;VB APIs-&gt;Comaparison-&gt;选上一切可疑的比如_vbaStrCmp,_vbaStrComp,_vbaVarCmpEq，然后点击确定的时候会中断，上下翻看程序是否有成功或者失败的提示，然后找到跳转NOP，这时候也可以看断点处是否在程序领空，如果在的话很可能就是那里。这种方法要看编译器</strong></p>
-<p><strong>3.用VB.D…反编译出来的地址和OD里面一模一样，利用这个特性，其实可以把11题破了，但是要写出注册机很难，11题根据VB反编译器分析之后，可以Ctrl+G直接去含有判断的地方把跳过显示REGISTRIERT的跳转指令nop掉就可以，而且查找字符，无论是Unicode还是ASCII，都需要在程序的领空才能查到程序相关的字符，在超过程序领空的查不到 </strong></p>
-<p><strong>4.在这之后由看了04,04爆破可以在加载程序完之后选择查看asc码，看到恭喜注册成功双击进去，然后这里有一点小坑，上面的jnz指令，如果不点击程序图片的框的话，是不会运行到这里的，可以在这里下断试，把跳过成功这句jnz nop掉就可以，有时候会出现一直搜索不到的情况，那就先运行程序，F12暂停，alt+k查看堆栈，找到程序领空，show produce然后再查找就可以了</strong></p>
-<p><strong>5.一般程序会从低地址开始加载，如果一开始运行程序的时候从F…开始的，那就是估计程序有那么一点毛病，我之前是在用OD加载之前运行了一下看，然后就从F..开始加载了，所以…讲不清 </strong></p>
-<p><strong>6.第五个，暴力破解，大概步骤是这样的，首先运行程序然后F9让其运行，然后F12中断，这时候alt+K，看到这里这个调用是在程序领空的，右键跟进去，进到主模块，右键查看ASC码，寻找“注册了”的字样，双击进去，把跳过这句话的指令全部nop，实际上只要nop第一个je和接下来的两个jnz就行，但是这个程序改了之后保存不下来，不知道为何，据说是有壳。 </strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>选择破解完01的时候，第二个选择破解09，当面对的是跳出成功和失败的页面的时候，往往可以通过先OD打开程序，先运行到密码输入错误界面，然后alt+k查看堆栈，找到massagebox查看调用，然后寻找跳转成功和失败的指令，nop掉失败的指令就爆破成功，随后的13题会单独写一篇</strong></li>
+<li><strong>再来说08,08破解的方法和09很相似，有两种方法可选，第一是和09一样，运行程序直至出错，回到OD，按F12，然后去alt+K去堆栈看messageBox，查看调用（show call），然后在主模块的堆栈区，这时候一定要看提示的Unicode语句在主模块堆栈地址是否在程序领空，如果在领空的话，离他最近return右键看反汇编，上下翻动看到成功和失败的Unicode，然后查找跳转到失败的je，jNz等语句，让NOP掉这条指令就爆了，第二种方法，由于程序是VB，所以可以利用其API，BreakPoint -&gt;VB APIs-&gt;Comaparison-&gt;选上一切可疑的比如_vbaStrCmp,_vbaStrComp,_vbaVarCmpEq，然后点击确定的时候会中断，上下翻看程序是否有成功或者失败的提示，然后找到跳转NOP，这时候也可以看断点处是否在程序领空，如果在的话很可能就是那里。这种方法要看编译器</strong></li>
+<li><strong>用VB.D…反编译出来的地址和OD里面一模一样，利用这个特性，其实可以把11题破了，但是要写出注册机很难，11题根据VB反编译器分析之后，可以Ctrl+G直接去含有判断的地方把跳过显示REGISTRIERT的跳转指令nop掉就可以，而且查找字符，无论是Unicode还是ASCII，都需要在程序的领空才能查到程序相关的字符，在超过程序领空的查不到 </strong></li>
+<li><strong>在这之后由看了04,04爆破可以在加载程序完之后选择查看asc码，看到恭喜注册成功双击进去，然后这里有一点小坑，上面的jnz指令，如果不点击程序图片的框的话，是不会运行到这里的，可以在这里下断试，把跳过成功这句jnz nop掉就可以，有时候会出现一直搜索不到的情况，那就先运行程序，F12暂停，alt+k查看堆栈，找到程序领空，show produce然后再查找就可以了</strong></li>
+<li><strong>一般程序会从低地址开始加载，如果一开始运行程序的时候从F…开始的，那就是估计程序有那么一点毛病，我之前是在用OD加载之前运行了一下看，然后就从F..开始加载了，所以…讲不清 </strong></li>
+<li><strong>第五个，暴力破解，大概步骤是这样的，首先运行程序然后F9让其运行，然后F12中断，这时候alt+K，看到这里这个调用是在程序领空的，右键跟进去，进到主模块，右键查看ASC码，寻找“注册了”的字样，双击进去，把跳过这句话的指令全部nop，实际上只要nop第一个je和接下来的两个jnz就行，但是这个程序改了之后保存不下来，不知道为何，据说是有壳。 </strong></li>
+</ul>
 
       
     </div>
@@ -596,8 +598,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/加密与解密/" rel="next" title="加密与解密">
-                <i class="fa fa-chevron-left"></i> 加密与解密
+              <a href="/2018/03/30/加密与解密/" rel="next" title="加密与解密学习（一）">
+                <i class="fa fa-chevron-left"></i> 加密与解密学习（一）
               </a>
             
           </div>
@@ -725,7 +727,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +738,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -747,7 +749,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -899,7 +901,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共7.5k字</span>
+      <span class="post-count">博客全站共10.0k字</span>
   </div>
 
   <br/>

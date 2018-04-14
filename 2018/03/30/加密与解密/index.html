@@ -93,14 +93,14 @@
 <meta name="description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 <meta name="keywords" content="Ollydbg,Crack,汇编与反汇编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="加密与解密">
+<meta property="og:title" content="加密与解密学习（一）">
 <meta property="og:url" content="http://noblestaspiration.net/2018/03/30/加密与解密/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T14:09:21.872Z">
+<meta property="og:updated_time" content="2018-04-14T02:35:37.785Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加密与解密">
+<meta name="twitter:title" content="加密与解密学习（一）">
 <meta name="twitter:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>加密与解密 | Summary's Blog</title>
+  <title>加密与解密学习（一） | Summary's Blog</title>
   
 
 
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">加密与解密</h1>
+          <h1 class="post-title" itemprop="name headline">加密与解密学习（一）</h1>
         
 
         <div class="post-meta">
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  821
+                  903
                 </span>
               
 
@@ -476,6 +476,11 @@
 <li>F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样</li>
 </ul>
 <a id="more"></a>
+<ul>
+<li>F4-运行到选定位置，也就是运行到光标所在的位置。</li>
+<li>Ctrl+F9-运行到return返回。</li>
+<li>Alt+F9-执行到用户代码，也就是程序领空。</li>
+</ul>
 <ul>
 <li>F9-让程序继续执行，shift和Ctrl和F7一样，alt+F9-执行直到返回用户代码段</li>
 <li>Ctrl+F11-Run跟踪步入</li>
@@ -523,7 +528,8 @@
 <li>向下箭头加上jump表示跳转</li>
 </ul>
 </li>
-<li>IDC，一些反汇编的任务需要IDC的协助，如对代码进行加密程序，可以用IDC先写一段解密代码，在解密后反汇编就可以得到正确的反汇编结果</li>
+<li>IDC作为IDA的一个重要组成，是一种嵌入式语言，一些反汇编的任务需要IDC的协助，如对代码进行加密程序，可以用IDC先写一段解密代码，在解密后反汇编就可以得到正确的反汇编结果</li>
+<li>IDA另一个重要特征是库文件的快速识别与鉴定。</li>
 </ul>
 <h2 id="汇编相关"><a href="#汇编相关" class="headerlink" title="汇编相关"></a>汇编相关</h2><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><ul>
 <li>EBP是存取某个时刻的栈顶指针，ESP是一直指向栈顶的指针，以方便对栈的操作</li>
@@ -560,7 +566,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   <p><span>文章作者: </span><a href="/" title="访问 Summary 的个人博客">Summary</a>
-  <br/><span>文章链接: </span><a href="/2018/03/30/加密与解密/" title="加密与解密">http://noblestaspiration.net/2018/03/30/加密与解密/</a>
+  <br/><span>文章链接: </span><a href="/2018/03/30/加密与解密/" title="加密与解密学习（一）">http://noblestaspiration.net/2018/03/30/加密与解密/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://noblestaspiration.net/2018/03/30/加密与解密/"  aria-label="复制成功！"></i></span>
   <br/>
   <span>版权声明:博客所有文章除特别声明外，均采用</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a> 许可协议，转载请注明出处！</p>  
@@ -763,7 +769,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -774,7 +780,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -785,7 +791,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -937,7 +943,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共7.5k字</span>
+      <span class="post-count">博客全站共10.0k字</span>
   </div>
 
   <br/>
@@ -1085,7 +1091,7 @@ var jiathis_config={
         var disqus_config = function () {
           this.page.url = 'http://noblestaspiration.net/2018/03/30/加密与解密/';
           this.page.identifier = '2018/03/30/加密与解密/';
-          this.page.title = '加密与解密';
+          this.page.title = '加密与解密学习（一）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://noblestaspiration-net.disqus.com/embed.js';
