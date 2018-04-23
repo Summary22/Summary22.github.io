@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://noblestaspiration.net/"/>
-  <updated>2018-04-20T08:09:54.146Z</updated>
+  <updated>2018-04-23T06:52:33.404Z</updated>
   <id>http://noblestaspiration.net/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WinRAR去广告</title>
+    <link href="http://noblestaspiration.net/2018/04/23/WinRAR%E5%8E%BB%E5%B9%BF%E5%91%8A/"/>
+    <id>http://noblestaspiration.net/2018/04/23/WinRAR去广告/</id>
+    <published>2018-04-23T06:51:49.826Z</published>
+    <updated>2018-04-23T06:52:33.404Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="WinRAR去广告"><a href="#WinRAR去广告" class="headerlink" title="WinRAR去广告"></a>WinRAR去广告</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>WinRAR是一款强大的压缩文件管理工具，目前最新版本为5.50版本，但是中文免费版本在每次启动时，会弹出广告页面，本次破解目标是去除广告页面。如下图：</p><a id="more"></a><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_002.png" alt="Crack013"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>官网下载软件，先使用PEID检查是否有壳，有壳的话去壳，然后通过OD进行跟踪分析，找到页面弹出的指令将其nop或者直接jmp，达到去取广告的目的。</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ul><li>先使用PEID查壳，无壳，但无法查出是什么语言编写的程序。</li></ul><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_001.png" alt="Crack013"></p><ul><li><p>F9运行后F12暂停，Alt+K查看堆栈，找最近在程序领空的调用，右键show call，查找ASC和Unicode没有发现关键字，这样只能F8单步下去，查看运行哪个call程序会运行并弹出广告，然后打断，F7单步进这个call，这样反复查看，最后找到弹出页面的call，nop或jmp这个call。如下图所示：</p><p>程序入口点：</p></li></ul><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_003.png" alt="Crack013"></p><p>F8跳过这个call时会运行程序并且弹出广告，在这下断，Ctrl+F2重新运行，F9到这一步，F7进入</p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_004.png" alt="Crack013"></p><p>进入上面的call，F8下去，如下图注释，第一个call，弹出form，第二个call，加载form里面的内容，这里不会弹出广告</p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_005.png" alt="Crack013"></p><p>运行第一个和第二个call以后的结果：</p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_006.png" alt="Crack013"></p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_008.png" alt="Crack013"></p><p>继续F8调试，当运行完下图这个call之后，弹出了广告</p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_009.png" alt="Crack013"></p><p>查看上图指令，经过一番研究，上面一条指令je short WinRAR.0132CF78，跳过紧挨着je的call指向弹出广告的call，这里修改je指令，将其修改为直接跳过弹出广告的call，如下图所示：</p><p><img src="http://p6flo4av7.bkt.clouddn.com/WinRAR_010.png" alt="Crack013"></p><p>然后F9运行，发现不会弹出广告，将其保存替换exe即可</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;WinRAR去广告&quot;&gt;&lt;a href=&quot;#WinRAR去广告&quot; class=&quot;headerlink&quot; title=&quot;WinRAR去广告&quot;&gt;&lt;/a&gt;WinRAR去广告&lt;/h1&gt;&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h2&gt;&lt;p&gt;WinRAR是一款强大的压缩文件管理工具，目前最新版本为5.50版本，但是中文免费版本在每次启动时，会弹出广告页面，本次破解目标是去除广告页面。如下图：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="加密解密" scheme="http://noblestaspiration.net/categories/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/"/>
+    
+    
+      <category term="Ollydbg" scheme="http://noblestaspiration.net/tags/Ollydbg/"/>
+    
+      <category term="WinRAR" scheme="http://noblestaspiration.net/tags/WinRAR/"/>
+    
+  </entry>
   
   <entry>
     <title>U盘杀毒专家</title>
