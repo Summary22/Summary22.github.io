@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pdf2word]]></title>
+    <url>%2F2018%2F05%2F17%2Fpdf2word%2F</url>
+    <content type="text"><![CDATA[PDF2Word分析程序启动后弹出注册页面，随意输入E-mail和注册码后弹出提示错误的窗口 思路使用IDA破解，软件破解思路是查找字符，看Graph View，最后看核心判断，也可以看到核心算法，写出注册机。 过程 Shift +F12找出所有的字符串，Ctrl + F搜索错误字符串“Wrong”，（同样的Alt+t可以直接在代码段查找关键词也可以）下图中可以看到 双击“Your registration key is wrong“进入下图界面 ，图中可以看出字符串所在区域是.data段，并没有在代码段，字符串后面有注释，有写data xref，xref是交叉引用的意思，鼠标移至后面箭头会出现这个call里面具体的代码，鼠标滚轮向下滑动，会显示出更多。双击这里即可进入相应的代码段。 双击图中黄色的16F后的箭头跳转到字符串的引用位置 向上滑动一点可以看到注册成功的相关代码，当然直接搜索字符串也能找到注册成功的相关代码，如果使用的是OllyDbg，通常的做法是在注册失败的代码中打断点，回溯到判断注册是否成功的代码中去，这里使用IDA的Graph View可以加快破解速度，在代码段按空格就会切换到Graph View， 可以非常明显的看到判断注册是否成功的流程，有红色断点的框中是判断注册是否成功的函数，先调用call ds:GetDigItemTextA获取输入的注册码，再把注册码通过栈作为参数传到sub_405F60函数中去，这个函数的返回值eax就是最后的注册结果，eax= 0时注册失败，暴力破解可以直接修改eax的值为1，略。下图中，可以看到跳转的连线有红色和绿色，红色是判断失败则执行，绿色是成功执行。 可以看出sub_405F60是关键的call。 用Graphmode整体地看下sub_405F60函数，左分支返回的都是eax= 0，造成注册失败，输入的注册码只要使程序到达最右下的分支即注册成功 逐条分析指令，发现有如下几条条件限制： 判断输入的注册码长度是否为0x14，即20(d)位 atoi(code[0]) + atoi(code[1]) = 0xB (注意这里没有使用ASCII码做运算) (int)注册码的第一位+ (int)注册码的第二位= 0xB atoi(code[18]) + atoi(code[19]) = 0xD (int)注册码第19位 + (int) 注册码第20位 = 0xD atoi(code[5])+atoi(code[13]) = 0x9 code[12] = 0x56(ASCII ‘V’) code[14] = 0x33 (ASCII ‘3’) code[15] = 0x33 (ASCII ‘2’) 综上 注册码code的要求为 总长度20位 atoi(code[0]) + atoi(code[1]) =0xB （11D） atoi(code[18]) + atoi(code[19])= 0xD （13D） atoi(code[5]) + atoi(code[13])= 0x9 （9D） code[12] = ‘V’ code[14] = ‘3’ code[15] = ‘2’ 其他位随便填写 注册机以及满足以上要求的一个注册码是如下图： 破解以后的画面是下图： IDAIDA的Graph View功能十分强大，F5更是可以近似生成源码，而且动态调试的时候在程序段同样可以查看到Graph View，而且当从一个模块到另一个模块的时候，如果停在上一个模块的最后一条指令，那么接下来要执行哪一个模块，指向那一个模块的线会跳动。但是感觉IDA动态调试没有OD方便，可能是IDA用得比较少吧。。。]]></content>
+      <categories>
+        <category>逆向分析</category>
+        <category>加密解密</category>
+      </categories>
+      <tags>
+        <tag>逆向破解</tag>
+        <tag>IDA</tag>
+        <tag>pdf2word</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[010Editor]]></title>
     <url>%2F2018%2F05%2F03%2F010Editor%2F</url>
     <content type="text"><![CDATA[010Editor破解关于软件 官网的介绍：Professional Text Editor+World’s Best Hex Editor ) 破解思路抓包分析软件在验证的时候没有发包，所以可以确定注册码一定是在本地生成，找到判断成功与否的指令，改掉jnz或者在上层调用中改返回值。此次没有编写注册机。 破解过程 先使用PEID查壳，发现无壳 用OD打开程序，F9运行起来，tools-&gt;register，会弹出一个form，然后随便输入用户名，验证码，点击确定，弹出失败的messagebox，此时F12暂停，堆栈查看 属于程序领空的一一查看，0012A380处，shawcall，会发现很多字符串，判断的地方应该就在这里，然后在这个函数的入口处下断 再次点击check license，会断在刚刚断点地方，F8单步下去，会发现有一处cam后跳过了正确的字符，修改这里，破解成功。]]></content>
@@ -87,9 +101,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[加密与解密学习（一）]]></title>
+    <title><![CDATA[加密与解密学习]]></title>
     <url>%2F2018%2F03%2F30%2F%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%2F</url>
-    <content type="text"><![CDATA[Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样 F4-运行到选定位置，也就是运行到光标所在的位置。 Ctrl+F9-运行到return返回。 Alt+F9-执行到用户代码，也就是程序领空。 F9-让程序继续执行，shift和Ctrl和F7一样，alt+F9-执行直到返回用户代码段 Ctrl+F11-Run跟踪步入 F12 - 停止程序执行，同时暂停被调试程序的所有线程。 Ctrl+F12 - Run跟踪步过，一条一条执行命令，但是不进入子函数调用，并把寄存器的信息加入到Run跟踪的存储数据中。Run跟踪不会同步更新CPU窗口。 Alt+B - 显示断点窗口。在这个窗口中，可以编辑、删除、或跟进到断点处。 Alt+C - 显示CPU窗口。 Alt+E - 显示模块列表［list of modules］。 Alt+K - 显示调用栈［Call stack］窗口。 Alt+L - 显示日志窗口。 Alt+M - 显示内存窗口。 Alt+O - 显示选项对话框［Options dialog］ Ctrl+P - 显示补丁窗口。 Ctrl+T - 打开Run跟踪 对话框 Alt+X - 关闭 OllyDbg。 Ctrl+E -以二进制（十六进制）格式编辑所选内容。 Ctrl+F -开始命令搜索。 Ctrl+G -转到某地址。 Ctrl+K - 查看与当前函数相关的调用树［Call tree］。在用这个功能之前，必须使用分析代码功能。 Ctrl+L - 搜索下一个，重复上一次的搜索内容。 Ctrl+N - 打开当前模块的名称（标签）列表。 Ctrl+O - 扫描object文件。扫描Object文件。该命令会显示扫描Object文件对话框，您可以在该对话框中选择Object文件或者lib文件，并扫描这个文件，试图找到在实际代码段中用到的目标模块。 Ctrl+S -命令搜索。 分号是注释 IDA 快捷键 j（jump）表示跳转 o（offset）便是偏移值 p（procedure）表示子程序，回车或双击可跳 字符上按X可以打开交叉参考窗口 M键为重命名，alt+M标记当前位置，Ctrl+M跳到标记位置，选择要跳的位置双击就过去了 U让所有代码以数据的形式显示出来，C重新分析代码 F12会出现函数执行的流程图 ，按空格可以相互之间转化 图形视图 蓝色，顺序执行 绿色，条件执行（YES） 红色，条件执行（NO） 文本视图 箭头实线表示非条件跳转，虚线表示条件跳转 向下箭头加上jump表示跳转 IDC作为IDA的一个重要组成，是一种嵌入式语言，一些反汇编的任务需要IDC的协助，如对代码进行加密程序，可以用IDC先写一段解密代码，在解密后反汇编就可以得到正确的反汇编结果 IDA另一个重要特征是库文件的快速识别与鉴定。 汇编相关寄存器 EBP是存取某个时刻的栈顶指针，ESP是一直指向栈顶的指针，以方便对栈的操作 杂项知识点 PE—Portable Executable可执行文件 很多工具在反汇编的时候可能无法正确区分数据和代码，有些程序就是用这个来对抗静态反汇编]]></content>
+    <content type="text"><![CDATA[Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样 F4-运行到选定位置，也就是运行到光标所在的位置。 Ctrl+F9-运行到return返回。 Alt+F9-执行到用户代码，也就是程序领空。 F9-让程序继续执行，shift和Ctrl和F7一样，alt+F9-执行直到返回用户代码段 Ctrl+F11-Run跟踪步入 F12 - 停止程序执行，同时暂停被调试程序的所有线程。 Ctrl+F12 - Run跟踪步过，一条一条执行命令，但是不进入子函数调用，并把寄存器的信息加入到Run跟踪的存储数据中。Run跟踪不会同步更新CPU窗口。 Alt+B - 显示断点窗口。在这个窗口中，可以编辑、删除、或跟进到断点处。 Alt+C - 显示CPU窗口。 Alt+E - 显示模块列表［list of modules］。 Alt+K - 显示调用栈［Call stack］窗口。 Alt+L - 显示日志窗口。 Alt+M - 显示内存窗口。 Alt+O - 显示选项对话框［Options dialog］ Ctrl+P - 显示补丁窗口。 Ctrl+T - 打开Run跟踪 对话框 Alt+X - 关闭 OllyDbg。 Ctrl+E -以二进制（十六进制）格式编辑所选内容。 Ctrl+F -开始命令搜索。 Ctrl+G -转到某地址。 Ctrl+K - 查看与当前函数相关的调用树［Call tree］。在用这个功能之前，必须使用分析代码功能。 Ctrl+L - 搜索下一个，重复上一次的搜索内容。 Ctrl+N - 打开当前模块的名称（标签）列表。 Ctrl+O - 扫描object文件。扫描Object文件。该命令会显示扫描Object文件对话框，您可以在该对话框中选择Object文件或者lib文件，并扫描这个文件，试图找到在实际代码段中用到的目标模块。 Ctrl+S -命令搜索。 分号是注释 IDA 快捷键 j（jump）表示跳转 o（offset）便是偏移值 p（procedure）表示子程序，回车或双击可跳 字符上按X可以打开交叉参考窗口 M键为重命名，alt+M标记当前位置，Ctrl+M跳到标记位置，选择要跳的位置双击就过去了 U让所有代码以数据的形式显示出来，C重新分析代码 F12会出现函数执行的流程图 ，按空格可以相互之间转化 Alt+T查找字符串 XREF:交叉引用 ​ 碰到地址的时候右键选择H，就会显示在这个栈帧中实际的位置，十六进制的，双击变量，变量会调到详细的视图 ​ 图形视图 蓝色，顺序执行 绿色，条件执行（YES） 红色，条件执行（NO） 文本视图 箭头实线表示非条件跳转，虚线表示条件跳转 向下箭头加上jump表示跳转 IDC作为IDA的一个重要组成，是一种嵌入式语言，一些反汇编的任务需要IDC的协助，如对代码进行加密程序，可以用IDC先写一段解密代码，在解密后反汇编就可以得到正确的反汇编结果 IDA另一个重要特征是库文件的快速识别与鉴定。 四种区段： .text：代码段 .data：数据段 .rdata：只读数据段 .bss：未初始化数据段 这里给出一个比较好的学习网址：https://blog.csdn.net/fishmai/article/details/52398376 汇编相关寄存器 EBP是存取某个时刻的栈顶指针，ESP是一直指向栈顶的指针，以方便对栈的操作 汇编指令 sete指令，cmp eax，ecx sete cl，如果eax=ecx，那么cl为1，否则为0 杂项知识点 PE—Portable Executable可执行文件 很多工具在反汇编的时候可能无法正确区分数据和代码，有些程序就是用这个来对抗静态反汇编]]></content>
       <categories>
         <category>加密解密</category>
         <category>逆向分析</category>
@@ -97,6 +111,7 @@
       <tags>
         <tag>Ollydbg</tag>
         <tag>Crack</tag>
+        <tag>IDA</tag>
         <tag>汇编与反汇编</tag>
       </tags>
   </entry>

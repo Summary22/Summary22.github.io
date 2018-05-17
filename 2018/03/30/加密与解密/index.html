@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Ollydbg,Crack,汇编与反汇编," />
+  <meta name="keywords" content="Ollydbg,Crack,IDA,汇编与反汇编," />
 
 
 
@@ -91,16 +91,16 @@
 
 
 <meta name="description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
-<meta name="keywords" content="Ollydbg,Crack,汇编与反汇编">
+<meta name="keywords" content="Ollydbg,Crack,IDA,汇编与反汇编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="加密与解密学习（一）">
+<meta property="og:title" content="加密与解密学习">
 <meta property="og:url" content="http://noblestaspiration.net/2018/03/30/加密与解密/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T06:42:26.429Z">
+<meta property="og:updated_time" content="2018-05-15T12:23:34.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加密与解密学习（一）">
+<meta name="twitter:title" content="加密与解密学习">
 <meta name="twitter:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>加密与解密学习（一） | Summary's Blog</title>
+  <title>加密与解密学习 | Summary's Blog</title>
   
 
 
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">加密与解密学习（一）</h1>
+          <h1 class="post-title" itemprop="name headline">加密与解密学习</h1>
         
 
         <div class="post-meta">
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  914
+                  1,044
                 </span>
               
 
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -526,6 +526,11 @@
 <li>M键为重命名，alt+M标记当前位置，Ctrl+M跳到标记位置，选择要跳的位置双击就过去了</li>
 <li>U让所有代码以数据的形式显示出来，C重新分析代码</li>
 <li><code>F12会出现函数执行的流程图</code> ，按空格可以相互之间转化</li>
+<li>Alt+T查找字符串</li>
+<li>XREF:交叉引用</li>
+<li>​</li>
+<li>碰到地址的时候右键选择H，就会显示在这个栈帧中实际的位置，十六进制的，双击变量，变量会调到详细的视图</li>
+<li>​</li>
 </ul>
 </li>
 <li>图形视图<ul>
@@ -541,9 +546,20 @@
 </li>
 <li>IDC作为IDA的一个重要组成，是一种嵌入式语言，一些反汇编的任务需要IDC的协助，如对代码进行加密程序，可以用IDC先写一段解密代码，在解密后反汇编就可以得到正确的反汇编结果</li>
 <li>IDA另一个重要特征是库文件的快速识别与鉴定。</li>
+<li>四种区段：<ul>
+<li>.text：代码段</li>
+<li>.data：数据段</li>
+<li>.rdata：只读数据段</li>
+<li>.bss：未初始化数据段</li>
 </ul>
+</li>
+</ul>
+<p>这里给出一个比较好的学习网址：<a href="https://blog.csdn.net/fishmai/article/details/52398376" target="_blank" rel="noopener">https://blog.csdn.net/fishmai/article/details/52398376</a></p>
 <h2 id="汇编相关"><a href="#汇编相关" class="headerlink" title="汇编相关"></a>汇编相关</h2><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><ul>
 <li>EBP是存取某个时刻的栈顶指针，ESP是一直指向栈顶的指针，以方便对栈的操作</li>
+</ul>
+<h3 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h3><ul>
+<li>sete指令，cmp eax，ecx  sete cl，如果eax=ecx，那么cl为1，否则为0 </li>
 </ul>
 <h2 id="杂项知识点"><a href="#杂项知识点" class="headerlink" title="杂项知识点"></a>杂项知识点</h2><ul>
 <li>PE—Portable Executable可执行文件</li>
@@ -577,7 +593,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   <p><span>文章作者: </span><a href="/" title="访问 Summary 的个人博客">Summary</a>
-  <br/><span>文章链接: </span><a href="/2018/03/30/加密与解密/" title="加密与解密学习（一）">http://noblestaspiration.net/2018/03/30/加密与解密/</a>
+  <br/><span>文章链接: </span><a href="/2018/03/30/加密与解密/" title="加密与解密学习">http://noblestaspiration.net/2018/03/30/加密与解密/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://noblestaspiration.net/2018/03/30/加密与解密/"  aria-label="复制成功！"></i></span>
   <br/>
   <span>版权声明:博客所有文章除特别声明外，均采用</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a> 许可协议，转载请注明出处！</p>  
@@ -637,6 +653,8 @@
             <a href="/tags/Ollydbg/" rel="tag"><i class="fa fa-tag"></i> Ollydbg</a>
           
             <a href="/tags/Crack/" rel="tag"><i class="fa fa-tag"></i> Crack</a>
+          
+            <a href="/tags/IDA/" rel="tag"><i class="fa fa-tag"></i> IDA</a>
           
             <a href="/tags/汇编与反汇编/" rel="tag"><i class="fa fa-tag"></i> 汇编与反汇编</a>
           
@@ -780,7 +798,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -791,7 +809,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -802,7 +820,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -904,7 +922,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Crack工具"><span class="nav-number">1.</span> <span class="nav-text">Crack工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ollydbg"><span class="nav-number">1.1.</span> <span class="nav-text">Ollydbg</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">1.1.1.</span> <span class="nav-text">快捷键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDA"><span class="nav-number">1.2.</span> <span class="nav-text">IDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编相关"><span class="nav-number">1.3.</span> <span class="nav-text">汇编相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器"><span class="nav-number">1.3.1.</span> <span class="nav-text">寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杂项知识点"><span class="nav-number">1.4.</span> <span class="nav-text">杂项知识点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Crack工具"><span class="nav-number">1.</span> <span class="nav-text">Crack工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ollydbg"><span class="nav-number">1.1.</span> <span class="nav-text">Ollydbg</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">1.1.1.</span> <span class="nav-text">快捷键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDA"><span class="nav-number">1.2.</span> <span class="nav-text">IDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编相关"><span class="nav-number">1.3.</span> <span class="nav-text">汇编相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器"><span class="nav-number">1.3.1.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编指令"><span class="nav-number">1.3.2.</span> <span class="nav-text">汇编指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杂项知识点"><span class="nav-number">1.4.</span> <span class="nav-text">杂项知识点</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -954,7 +972,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共12.0k字</span>
+      <span class="post-count">博客全站共13.0k字</span>
   </div>
 
   <br/>
@@ -1102,7 +1120,7 @@ var jiathis_config={
         var disqus_config = function () {
           this.page.url = 'http://noblestaspiration.net/2018/03/30/加密与解密/';
           this.page.identifier = '2018/03/30/加密与解密/';
-          this.page.title = '加密与解密学习（一）';
+          this.page.title = '加密与解密学习';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://noblestaspiration-net.disqus.com/embed.js';
