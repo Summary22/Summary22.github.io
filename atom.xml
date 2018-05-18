@@ -99,6 +99,32 @@
   </entry>
   
   <entry>
+    <title>git�ϴ����ش���</title>
+    <link href="http://noblestaspiration.net/2018/04/20/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
+    <id>http://noblestaspiration.net/2018/04/20/git上传代码/</id>
+    <published>2018-04-20T08:58:15.101Z</published>
+    <updated>2018-05-18T08:10:34.535Z</updated>
+    
+    <content type="html"><![CDATA[<p>##���裺</p><ul><li>������GitHub�Ͻ�һ���ֿ�</li><li>�����½�һ�����������ļ��У��ڱ�������ļ��������git bash</li></ul><a id="more"></a><ul><li><code>Ȼ��ִ��</code></li></ul><blockquote><p><code>git init</code></p></blockquote><ul><li>Ȼ������Ӵ��룬�Ѵ��븴�Ƶ�����ļ����£�ִ��</li></ul><blockquote><p>git add .//ȫ�����</p><p>git add xx.cpp//һ�������</p></blockquote><ul><li>Ȼ��ִ��</li></ul><blockquote><p>git commit -m “���������ļ���”</p></blockquote><ul><li><code>�����ֿ⣺git remote add origin https://git@github.com:Summary22/Myproject.git</code></li><li>�ϴ�ִ��</li></ul><blockquote><p>git push origin master</p></blockquote><p><strong>ע�⣺��һ���ϴ�����������ɫ����</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##���裺&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;������GitHub�Ͻ�һ���ֿ�&lt;/li&gt;
+&lt;li&gt;�����½�һ�����������ļ��У��ڱ�������ļ��������git bash&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="git_operate" scheme="http://noblestaspiration.net/categories/git-operate/"/>
+    
+    
+      <category term="git_Push" scheme="http://noblestaspiration.net/tags/git-Push/"/>
+    
+  </entry>
+  
+  <entry>
     <title>U盘杀毒专家</title>
     <link href="http://noblestaspiration.net/2018/04/20/U%E7%9B%98%E6%9D%80%E6%AF%92%E4%B8%93%E5%AE%B6/"/>
     <id>http://noblestaspiration.net/2018/04/20/U盘杀毒专家/</id>
