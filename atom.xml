@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://noblestaspiration.net/"/>
-  <updated>2018-05-17T06:58:40.241Z</updated>
+  <updated>2018-05-18T08:18:18.775Z</updated>
   <id>http://noblestaspiration.net/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git上传本地代码</title>
+    <link href="http://noblestaspiration.net/2018/05/18/Git%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81/"/>
+    <id>http://noblestaspiration.net/2018/05/18/Git上传本地代码/</id>
+    <published>2018-05-18T08:16:23.983Z</published>
+    <updated>2018-05-18T08:18:18.775Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ul><li>首先在GitHub上建一个仓库</li><li>本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash</li></ul><a id="more"></a><ul><li><code>然后执行</code></li></ul><blockquote><p><code>git init</code></p></blockquote><ul><li>然后是添加代码，把代码复制到这个文件夹下，执行</li></ul><blockquote><p>git add .//全部添加</p><p>git add xx.cpp//一个个添加</p></blockquote><ul><li>然后执行</li></ul><blockquote><p>git commit -m “保存代码的文件夹”</p></blockquote><ul><li><code>关联仓库：git remote add origin https://git@github.com:Summary22/Myproject.git</code></li><li>上传执行</li></ul><blockquote><p>git push origin master</p></blockquote><p><strong>注意：第一次上传的是其他颜色字体</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;步骤：&quot;&gt;&lt;a href=&quot;#步骤：&quot; class=&quot;headerlink&quot; title=&quot;步骤：&quot;&gt;&lt;/a&gt;步骤：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;首先在GitHub上建一个仓库&lt;/li&gt;
+&lt;li&gt;本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="git_operation" scheme="http://noblestaspiration.net/categories/git-operation/"/>
+    
+    
+      <category term="git_Push" scheme="http://noblestaspiration.net/tags/git-Push/"/>
+    
+  </entry>
   
   <entry>
     <title>pdf2word</title>
@@ -95,32 +120,6 @@
       <category term="逆向破解" scheme="http://noblestaspiration.net/tags/%E9%80%86%E5%90%91%E7%A0%B4%E8%A7%A3/"/>
     
       <category term="WinRAR" scheme="http://noblestaspiration.net/tags/WinRAR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git�ϴ����ش���</title>
-    <link href="http://noblestaspiration.net/2018/04/20/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
-    <id>http://noblestaspiration.net/2018/04/20/git上传代码/</id>
-    <published>2018-04-20T08:58:15.101Z</published>
-    <updated>2018-05-18T08:10:34.535Z</updated>
-    
-    <content type="html"><![CDATA[<p>##���裺</p><ul><li>������GitHub�Ͻ�һ���ֿ�</li><li>�����½�һ�����������ļ��У��ڱ�������ļ��������git bash</li></ul><a id="more"></a><ul><li><code>Ȼ��ִ��</code></li></ul><blockquote><p><code>git init</code></p></blockquote><ul><li>Ȼ������Ӵ��룬�Ѵ��븴�Ƶ�����ļ����£�ִ��</li></ul><blockquote><p>git add .//ȫ�����</p><p>git add xx.cpp//һ�������</p></blockquote><ul><li>Ȼ��ִ��</li></ul><blockquote><p>git commit -m “���������ļ���”</p></blockquote><ul><li><code>�����ֿ⣺git remote add origin https://git@github.com:Summary22/Myproject.git</code></li><li>�ϴ�ִ��</li></ul><blockquote><p>git push origin master</p></blockquote><p><strong>ע�⣺��һ���ϴ�����������ɫ����</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;##���裺&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;������GitHub�Ͻ�һ���ֿ�&lt;/li&gt;
-&lt;li&gt;�����½�һ�����������ļ��У��ڱ�������ļ��������git bash&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="git_operate" scheme="http://noblestaspiration.net/categories/git-operate/"/>
-    
-    
-      <category term="git_Push" scheme="http://noblestaspiration.net/tags/git-Push/"/>
     
   </entry>
   

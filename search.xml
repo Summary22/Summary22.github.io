@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git上传本地代码]]></title>
+    <url>%2F2018%2F05%2F18%2FGit%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[步骤： 首先在GitHub上建一个仓库 本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash 然后执行 git init 然后是添加代码，把代码复制到这个文件夹下，执行 git add .//全部添加 git add xx.cpp//一个个添加 然后执行 git commit -m “保存代码的文件夹” 关联仓库：git remote add origin https://git@github.com:Summary22/Myproject.git 上传执行 git push origin master 注意：第一次上传的是其他颜色字体]]></content>
+      <categories>
+        <category>git_operation</category>
+      </categories>
+      <tags>
+        <tag>git_Push</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pdf2word]]></title>
     <url>%2F2018%2F05%2F17%2Fpdf2word%2F</url>
     <content type="text"><![CDATA[PDF2Word分析程序启动后弹出注册页面，随意输入E-mail和注册码后弹出提示错误的窗口 思路使用IDA破解，软件破解思路是查找字符，看Graph View，最后看核心判断，也可以看到核心算法，写出注册机。 过程 Shift +F12找出所有的字符串，Ctrl + F搜索错误字符串“Wrong”，（同样的Alt+t可以直接在代码段查找关键词也可以）下图中可以看到 双击“Your registration key is wrong“进入下图界面 ，图中可以看出字符串所在区域是.data段，并没有在代码段，字符串后面有注释，有写data xref，xref是交叉引用的意思，鼠标移至后面箭头会出现这个call里面具体的代码，鼠标滚轮向下滑动，会显示出更多。双击这里即可进入相应的代码段。 双击图中黄色的16F后的箭头跳转到字符串的引用位置 向上滑动一点可以看到注册成功的相关代码，当然直接搜索字符串也能找到注册成功的相关代码，如果使用的是OllyDbg，通常的做法是在注册失败的代码中打断点，回溯到判断注册是否成功的代码中去，这里使用IDA的Graph View可以加快破解速度，在代码段按空格就会切换到Graph View， 可以非常明显的看到判断注册是否成功的流程，有红色断点的框中是判断注册是否成功的函数，先调用call ds:GetDigItemTextA获取输入的注册码，再把注册码通过栈作为参数传到sub_405F60函数中去，这个函数的返回值eax就是最后的注册结果，eax= 0时注册失败，暴力破解可以直接修改eax的值为1，略。下图中，可以看到跳转的连线有红色和绿色，红色是判断失败则执行，绿色是成功执行。 可以看出sub_405F60是关键的call。 用Graphmode整体地看下sub_405F60函数，左分支返回的都是eax= 0，造成注册失败，输入的注册码只要使程序到达最右下的分支即注册成功 逐条分析指令，发现有如下几条条件限制： 判断输入的注册码长度是否为0x14，即20(d)位 atoi(code[0]) + atoi(code[1]) = 0xB (注意这里没有使用ASCII码做运算) (int)注册码的第一位+ (int)注册码的第二位= 0xB atoi(code[18]) + atoi(code[19]) = 0xD (int)注册码第19位 + (int) 注册码第20位 = 0xD atoi(code[5])+atoi(code[13]) = 0x9 code[12] = 0x56(ASCII ‘V’) code[14] = 0x33 (ASCII ‘3’) code[15] = 0x33 (ASCII ‘2’) 综上 注册码code的要求为 总长度20位 atoi(code[0]) + atoi(code[1]) =0xB （11D） atoi(code[18]) + atoi(code[19])= 0xD （13D） atoi(code[5]) + atoi(code[13])= 0x9 （9D） code[12] = ‘V’ code[14] = ‘3’ code[15] = ‘2’ 其他位随便填写 注册机以及满足以上要求的一个注册码是如下图： 破解以后的画面是下图： IDAIDA的Graph View功能十分强大，F5更是可以近似生成源码，而且动态调试的时候在程序段同样可以查看到Graph View，而且当从一个模块到另一个模块的时候，如果停在上一个模块的最后一条指令，那么接下来要执行哪一个模块，指向那一个模块的线会跳动。但是感觉IDA动态调试没有OD方便，可能是IDA用得比较少吧。。。]]></content>
@@ -38,17 +49,6 @@
         <tag>Ollydbg</tag>
         <tag>逆向破解</tag>
         <tag>WinRAR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[git�ϴ����ش���]]></title>
-    <url>%2F2018%2F04%2F20%2Fgit%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%2F</url>
-    <content type="text"><![CDATA[##���裺 ������GitHub�Ͻ�һ���ֿ� �����½�һ�����������ļ��У��ڱ�������ļ��������git bash Ȼ��ִ�� git init Ȼ������Ӵ��룬�Ѵ��븴�Ƶ�����ļ����£�ִ�� git add .//ȫ����� git add xx.cpp//һ������� Ȼ��ִ�� git commit -m “���������ļ���” �����ֿ⣺git remote add origin https://git@github.com:Summary22/Myproject.git �ϴ�ִ�� git push origin master ע�⣺��һ���ϴ�����������ɫ����]]></content>
-      <categories>
-        <category>git_operate</category>
-      </categories>
-      <tags>
-        <tag>git_Push</tag>
       </tags>
   </entry>
   <entry>
