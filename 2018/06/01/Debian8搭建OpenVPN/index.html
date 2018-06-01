@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="git_Push," />
+  <meta name="keywords" content="Debian,OpenVPN," />
 
 
 
@@ -90,18 +90,20 @@
 
 
 
-<meta name="description" content="步骤： 首先在GitHub上建一个仓库 本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash">
-<meta name="keywords" content="git_Push">
+<meta name="description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
+<meta name="keywords" content="Debian,OpenVPN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git上传本地代码">
-<meta property="og:url" content="http://noblestaspiration.net/2018/05/18/Git上传本地代码/index.html">
+<meta property="og:title" content="Debian8搭建OpenVPN">
+<meta property="og:url" content="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
-<meta property="og:description" content="步骤： 首先在GitHub上建一个仓库 本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash">
+<meta property="og:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T08:18:18.775Z">
+<meta property="og:image" content="http://p6flo4av7.bkt.clouddn.com/openvpn.png">
+<meta property="og:updated_time" content="2018-06-01T08:09:45.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git上传本地代码">
-<meta name="twitter:description" content="步骤： 首先在GitHub上建一个仓库 本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash">
+<meta name="twitter:title" content="Debian8搭建OpenVPN">
+<meta name="twitter:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
+<meta name="twitter:image" content="http://p6flo4av7.bkt.clouddn.com/openvpn.png">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://noblestaspiration.net/2018/05/18/Git上传本地代码/"/>
+  <link rel="canonical" href="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/"/>
 
 
 
 
 
-  <title>Git上传本地代码 | Summary's Blog</title>
+  <title>Debian8搭建OpenVPN | Summary's Blog</title>
   
 
 
@@ -340,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://noblestaspiration.net/2018/05/18/Git上传本地代码/">
+    <link itemprop="mainEntityOfPage" href="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Summary">
@@ -357,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git上传本地代码</h1>
+          <h1 class="post-title" itemprop="name headline">Debian8搭建OpenVPN</h1>
         
 
         <div class="post-meta">
@@ -369,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T16:16:23+08:00">
-                2018-05-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T11:29:57+08:00">
+                2018-06-01
               </time>
             
 
@@ -392,8 +394,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git-operation/" itemprop="url" rel="index">
-                    <span itemprop="name">git_operation</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/VPN/" itemprop="url" rel="index">
+                    <span itemprop="name">VPN</span>
                   </a>
                 </span>
 
@@ -410,9 +423,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/18/Git上传本地代码/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/01/Debian8搭建OpenVPN/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/18/Git上传本地代码/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/01/Debian8搭建OpenVPN/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,7 +447,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  135
+                  1,754
                 </span>
               
 
@@ -450,7 +463,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -471,38 +484,193 @@
       
 
       
-        <h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ul>
-<li>首先在GitHub上建一个仓库</li>
-<li>本地新建一个保存代码的文件夹，在保存代码文件夹里面打开git bash</li>
-</ul>
+        <p>先搭建好debian8的环境，然后确保能上网</p>
+<blockquote>
+<p><code>ping www.baidu.com</code></p>
+</blockquote>
+<p>内网最好改为静态ip，修改静态IP方法：</p>
+<p>第一步：</p>
+<blockquote>
+<p>vi /etc/network/interfaces</p>
+<p>auto eth0</p>
+<p># iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面</p>
+<p>iface eth0 inet static</p>
+<p>​    adress xx.xx.xx.xx</p>
+<p>​    netmask xx.xx.xx.xx</p>
+<p>​    gateway xx.xx.xx.xx</p>
+</blockquote>
+<p>第二步：</p>
+<blockquote>
+<p>vi /etc/resolv.conf #修改为自己的网关</p>
+</blockquote>
 <a id="more"></a>
-<ul>
-<li><code>然后执行</code></li>
+<p>网关可以在宿主机上面看到</p>
+<h2 id="服务器端搭建"><a href="#服务器端搭建" class="headerlink" title="服务器端搭建"></a>服务器端搭建</h2><ul>
+<li>查看是否有tun和iptables_net模块支持</li>
 </ul>
+<p>先查看tun</p>
 <blockquote>
-<p><code>git init</code></p>
+<p>cat /dev/net/tun</p>
+</blockquote>
+<p>返回的是File descriptor in bad state说明可用，No such device则需要开通tun/tap服务</p>
+<p>再查看iptables_net</p>
+<blockquote>
+<p>apt-get install iptables</p>
 </blockquote>
 <ul>
-<li>然后是添加代码，把代码复制到这个文件夹下，执行</li>
+<li>检查系统时间是否与客户机一致，不一致则调整为一致</li>
 </ul>
 <blockquote>
-<p>git add .//全部添加</p>
-<p>git add xx.cpp//一个个添加</p>
+<p>date -R #查看时间</p>
+<p>date -s 01/01/2000</p>
+<p>date -s 14:00</p>
+<p>hwclock -w #时间写入本地</p>
 </blockquote>
 <ul>
-<li>然后执行</li>
+<li>正式安装OpenVPN</li>
 </ul>
 <blockquote>
-<p>git commit -m “保存代码的文件夹”</p>
+<p>apt-get install openvpn lzop</p>
+<p>apt-get install zip</p>
+<p>apt-get install expect</p>
+</blockquote>
+<p>如果安装没有成功则先更新一下系统</p>
+<blockquote>
+<p>apt-get update &amp;&amp; apt-get dist-upgrade</p>
 </blockquote>
 <ul>
-<li><code>关联仓库：git remote add origin https://git@github.com:Summary22/Myproject.git</code></li>
-<li>上传执行</li>
-</ul>
+<li><p>使用easy-rsa生成证书</p>
+<p>默认openvpn的easy-rsa文档会放在<code>/usr/share/easy-rsa/</code>下，不在则检查是否安装成功，或者用locate、find命令查找一下，然后将文档复制到<code>/etc/openvpn/</code>下</p>
 <blockquote>
-<p>git push origin master</p>
+<p>cp -r /usr/share/easy-rsa/ /etc/openvpn/</p>
 </blockquote>
-<p><strong>注意：第一次上传的是其他颜色字体</strong></p>
+<ul>
+<li><p>生成ca证书：</p>
+<blockquote>
+<p>cd /etc/openvpn/easy-rsa/</p>
+<p>source vars   #可自行编译vars文件，也可保持默认</p>
+<p>./clean-all</p>
+<p>./build-ca</p>
+</blockquote>
+<p>提示回车默认即可，y/n选择y</p>
+</li>
+<li><p>生成服务器端证书和密钥：</p>
+<blockquote>
+<p>./build-key-server server #server是服务端的名字可自行设置</p>
+</blockquote>
+<p>提示回车默认即可，y/n选择y</p>
+</li>
+<li><p>生成客户端证书和密钥：</p>
+<p>这里设置的客户端名字不能和上一步服务端名字一样</p>
+<blockquote>
+<p>./build-key client</p>
+</blockquote>
+<p>提示回车默认即可，y/n选择y，想要生成多个客户端的证书和米哟啊将client改成另外的名字重复操作即可，所有证书都在<code>/etc/openvpn/easy-rsa/keys/</code>下面保存</p>
+</li>
+<li><p>生成Diffie Hellman参数：</p>
+<p>以上完成之后执行:</p>
+<blockquote>
+<p>./build-dh</p>
+</blockquote>
+<p>keys目录下文件如下：</p>
+<p><img src="http://p6flo4av7.bkt.clouddn.com/openvpn.png" alt="Crack013"></p>
+</li>
+</ul>
+</li>
+<li><p>配置OpenVPN服务端文件</p>
+<ul>
+<li><p>编辑/etc/openvpn/server.conf文件，没有的新建一个，加入以下内容：(最好将注释去掉)</p>
+<blockquote>
+<p>local xx.xx.xx.xx    #xx.xx.xx.xx为服务器的IP<br>port 8080    #端口，需要与客户端配置保持一致，并保证与其他软件无共用<br>proto udp    #使用协议，需要与客户端配置保持一致<br>dev tun      #也可以选择tap模式<br>ca /etc/openvpn/easy-rsa/keys/ca.crt<br>cert /etc/openvpn/easy-rsa/keys/server.crt<br>key /etc/openvpn/easy-rsa/keys/server.key<br>dh /etc/openvpn/easy-rsa/keys/dh2048.pem #以上为认证文件的绝对路径，根据实际情况修改<br>ifconfig-pool-persist ipp.txt<br>server 10.168.1.0 255.255.255.0    #给客户的分配的局域网IP段，注意不要与客户端网段冲突！<br>push “route xx.xx.xx.xx 255.255.0.0”#xx.xx.xx.xx表示内网网段，是网段，只在连接内网是流量走vpn，客户使用外网是任然使用其自身网络流量，规则为“route内网网段 内网掩码”；若客户端希望所有的流量都通过 VPN 传输,则可以使用该语句：push “redirect-gateway”，并在客户端配置文件加上redirect-gateway；<br>push “dhcp-option DNS 8.8.8.8”    #客户端的DNS，可不设置<br>push “dhcp-option DNS 8.8.4.4”    #客户端的DNS，可不设置<br>client-to-client<br>;duplicate-cn        #若要在多台电脑使用一个证书，请去掉前面的;<br>keepalive 20 60<br>comp-lzo<br>max-clients 50<br>persist-key<br>persist-tun<br>status openvpn-status.log<br>log-append openvpn.log<br>verb 3<br>mute 20</p>
+</blockquote>
+</li>
+<li><p>设置IP转发：</p>
+<blockquote>
+<p>iptables -t nat -A POSTROUTING -s 10.168.1.0/24 -j SNAT –to-source xx.xx.xx.xx #xx.xx.xx.xx为服务器IP</p>
+<p>iptables -t nat -L</p>
+</blockquote>
+<p>第一条命令是设置，如果知道你的路由的外网IP，那么就把前面换为外网IP添加进去</p>
+<p>看到如下字样则转发成功：</p>
+<blockquote>
+<p>SANT    all – 10.168.1.0/24 anywhere to:xx.xx.xx.xx#xx.xx.xx.xx为服务器IP</p>
+</blockquote>
+</li>
+<li><p>修改/etc/sysctl.conf的内容为：</p>
+<p>这个文件进去之后全是注释，在最下面加上这几句</p>
+<blockquote>
+<p>net.ipv4.ip_forward = 1</p>
+<p>net.ipv4.conf.all.send_redirects = 0</p>
+<p>net.ipv4.conf.default.send_redirects = 0</p>
+<p>net.ipv4.conf.all.accept_redirects = 0</p>
+<p>net.ipv4.conf.default.accept_redirects= 0</p>
+</blockquote>
+<p>然后执行</p>
+<blockquote>
+<p>sysctl -p</p>
+</blockquote>
+<p>使其生效，到这里服务器端的配置都完成了</p>
+<blockquote>
+<p>/etc/init.d/openvpn restart</p>
+</blockquote>
+<p>上面的命令让OpenVPN重启</p>
+<p>如果无效的话，那么重启debian</p>
+</li>
+</ul>
+</li>
+<li><p>想使其开机自动运行的话还需要：</p>
+</li>
+</ul>
+<p>创建/root/vpn.sh 文件，加入下面的内容：（复制到VPS上时，最好把注释去掉）</p>
+<blockquote>
+<p>#!/bin/bash</p>
+<p>/etc/init.d/openvpn start  #Debian下OpenVPN不用设置就可以开机自动运行，如可以自动运行就去掉这句</p>
+<p>/sbin/iptables -t nat -A POSTROUTING -s 10.168.1.0/24 -j SNAT –to-source xx.xx.xx.xx    #xx.xx.xx.xx为服务器IP，实际根据自己的服务器来做调整，这只做示例</p>
+</blockquote>
+<p>将这一脚本写入cron执行计划，执行</p>
+<blockquote>
+<p>crontab -e</p>
+<p>@reboot /bin/bash /root/vpn.sh &gt;/dev/null 2&gt;&amp;1</p>
+</blockquote>
+<p>这是服务端，还有客户端，<strong>当然如果更改了上面的配置文件一定要重新导出证书放在openvpn安装目录下的config文件夹下</strong></p>
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>上面中有提服务端端口设置，设置外部端口，让其映射到内部端口（服务器端口），在xx.xx.1.1里面设置</p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>主要配置windows客户端</p>
+<ul>
+<li>下载客户端，下载地址：<a href="https://openvpn.net/index.php/open-source/downloads.html" target="_blank" rel="noopener">https://openvpn.net/index.php/open-source/downloads.html</a>翻墙的时候要开全局，不然访问页面都会很卡</li>
+<li>下载证书，使用SourceFXPortable连接到debian8下载，SourceFXPortable下载地址：<a href="https://pan.baidu.com/s/1fA53wVXlL-SAFRvLap-Ugw" target="_blank" rel="noopener">https://pan.baidu.com/s/1fA53wVXlL-SAFRvLap-Ugw</a> 密码：ruep</li>
+</ul>
+<p>证书在/etc/openvpn/easy-rsa/keys里，两个证书一个key <strong>ca.crt、client.crt、client.key</strong>放在openvpn安装目录下的config文件夹里面</p>
+<ul>
+<li>创建客户端配置文件</li>
+</ul>
+<p>在上面提到的config文件夹下面创建一个sunny.ovpn文件，添加以下内容：</p>
+<blockquote>
+<p>client        #这个client不是自定义名称不能更改</p>
+<p>dev tun       #要与前面server.conf中的配置一致。</p>
+<p>proto udp              #要与前面server.conf中的配置一致。</p>
+<p>remote xx.xx.xx.xx 88    #xx.xx.xx.xx为路由外网的IP，88为外部端口，端口与之前端口映射的外部端口一致，若同处内网，则ip和端口与前面的server.conf中配置一致。</p>
+<p>resolv-retry 20</p>
+<p>nobind</p>
+<p>persist-key</p>
+<p>persist-tun</p>
+<p>ca ca.crt              #具体名称以刚下载的为准</p>
+<p>cert client.crt              #具体名称以刚下载的为准</p>
+<p>key client.key              #具体名称以刚下载的为准</p>
+<p>ns-cert-type server</p>
+<p>/# redirect-gateway#如服务端配置为push”redirect-gateway”，则保留这行，否则请注释掉</p>
+<p>keepalive 10 30</p>
+<p>comp-lzo</p>
+<p>verb 3</p>
+<p>mute 20</p>
+<p>route-method exe</p>
+<p>route-delay2</p>
+</blockquote>
+<ul>
+<li>运行OpenVPN客户端，绿色则表示连接成功，黄色就是断开连接</li>
+<li>各种连不上以及问题参照本地<strong>vpn启动及恢复检查文档-最新.word</strong></li>
+</ul>
+<p>##文章参考：</p>
+<p><a href="http://shit.name/openvpn-on-debian/" target="_blank" rel="noopener">http://shit.name/openvpn-on-debian/</a></p>
+<p>以及实验室OpenVPN安装文档</p>
 
       
     </div>
@@ -531,8 +699,8 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   <p><span>文章作者: </span><a href="/" title="访问 Summary 的个人博客">Summary</a>
-  <br/><span>文章链接: </span><a href="/2018/05/18/Git上传本地代码/" title="Git上传本地代码">http://noblestaspiration.net/2018/05/18/Git上传本地代码/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://noblestaspiration.net/2018/05/18/Git上传本地代码/"  aria-label="复制成功！"></i></span>
+  <br/><span>文章链接: </span><a href="/2018/06/01/Debian8搭建OpenVPN/" title="Debian8搭建OpenVPN">http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/"  aria-label="复制成功！"></i></span>
   <br/>
   <span>版权声明:博客所有文章除特别声明外，均采用</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a> 许可协议，转载请注明出处！</p>  
   
@@ -588,7 +756,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git-Push/" rel="tag"><i class="fa fa-tag"></i> git_Push</a>
+            <a href="/tags/Debian/" rel="tag"><i class="fa fa-tag"></i> Debian</a>
+          
+            <a href="/tags/OpenVPN/" rel="tag"><i class="fa fa-tag"></i> OpenVPN</a>
           
         </div>
       
@@ -601,8 +771,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/17/pdf2word/" rel="next" title="pdf2word">
-                <i class="fa fa-chevron-left"></i> pdf2word
+              <a href="/2018/05/18/Git上传本地代码/" rel="next" title="Git上传本地代码">
+                <i class="fa fa-chevron-left"></i> Git上传本地代码
               </a>
             
           </div>
@@ -610,10 +780,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/01/Debian8搭建OpenVPN/" rel="prev" title="Debian8搭建OpenVPN">
-                Debian8搭建OpenVPN <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -854,7 +1020,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤："><span class="nav-number">1.</span> <span class="nav-text">步骤：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端搭建"><span class="nav-number">1.</span> <span class="nav-text">服务器端搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口映射"><span class="nav-number">2.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">3.</span> <span class="nav-text">客户端</span></a></li></ol></div>
             
 
           </div>
@@ -1050,9 +1216,9 @@ var jiathis_config={
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://noblestaspiration.net/2018/05/18/Git上传本地代码/';
-          this.page.identifier = '2018/05/18/Git上传本地代码/';
-          this.page.title = 'Git上传本地代码';
+          this.page.url = 'http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/';
+          this.page.identifier = '2018/06/01/Debian8搭建OpenVPN/';
+          this.page.title = 'Debian8搭建OpenVPN';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://noblestaspiration-net.disqus.com/embed.js';
