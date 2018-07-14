@@ -339,6 +339,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://noblestaspiration.net/2018/07/02/Seetaface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summary">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Summary's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/02/Seetaface/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T19:57:25+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/02/Seetaface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/02/Seetaface/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  883
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虚拟机中进行项目：</p>
+<p>1.环境：win7 X64、vs2013、OpenCV</p>
+<p>2.配置环境变量：安装OpenCV的过程就是解压代码到指定目录的过程，解压完毕后有vc10~12，与Visual Studio对应关系如下：<br>vc9 Visual Studio 2010 ： vc10 </p>
+<p>Visual Studio 2012 ： vc11 </p>
+<p>Visual Studio 2013 ： vc12 </p>
+<p>Visual Studio 2015 ： vc14 </p>
+<p>Visual Studio 2017 ： vc15</p>
+<p>右键我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;双击Path</p>
+<p>添加OpenCV变量（解压的到电脑里面的路径），我的是C:\Program Files\opencv\build\x64\vc12\bin，添加，x86的也添加上</p>
+<p>3.开始编译Detection。</p>
+<p>3.1打开VS2013新建项目，C++的win32控制台应用程序，注意选上空项目，然后再在解决方案处右键新建项目，这次新建dll文件，同样是空项目</p>
+<p>3.2将活动解决方案平台转化为X64平台：点击配置管理器（配图），在活动解决方案下面点击，然后新建，改为x64，点击确定，然后将debug换成release</p>
+<p>3.3将下载的FaceDetection源码中的data，include，model，scr拷贝到目录下，其中data在SeetaFace目录下，其他三个在FaceDetection目录下</p>
+<p>3.4添加cpp文件，右键FaceDetection下的源文件，添加scr文件下除去test文件的所有cpp文件，一共11个</p>
+<p>3.5配置项目属性：右键FaceDetection，属性，3.5.1：VC++目录-&gt;包含目录，编辑其目录输入include（相对路径），3.5.2：选择C/C++预处理器-&gt;预处理器定义-&gt;添加”SEETA_EXPORTS和USE_OPENMP”两项，3.5.3：C/C++-&gt;语言-&gt;OpenMP支持-&gt;是</p>
+<p>3.6右键项目生成，在SeetaFace\x64\release下面会看到dll，lib文件</p>
+<p>4.创建测试项目</p>
+<p>4.1创建测试项目，同样选择空项目，现将其设置为启动项</p>
+<p>4.2把活动解决方案转化为x64平台，如果提示创建不成功就把原来的移除重新创建，重新创建可能会导致前面配置清空，如清空则重新配置。之前这些其实都不必要，只要在新建项目平台的时候把创建新的解决方案平台的√点掉就行。</p>
+<p>4.3写入测试代码，右键FaceDetection下的源文件-&gt;添加-&gt;新建项-&gt;C++文件，复制src\test下的代码进来，此时会有很多报错，需要配置</p>
+<p>4.4创建lib文件，在SeetaFace下创建一个lib文件夹，把上一步x64\release里面生成的lib文件复制到lib文件夹下</p>
+<p>4.5配置属性：右键FaceDetection-&gt;属性，4.5.1：调试-&gt;命令参数-&gt;输入:“..\data\0_1_1.jpg ..\FaceDetection\model\seeta_fd_frontal_v1.0.bin”</p>
+<p>4.5.2：VC++ 目录 -&gt; 包含目录(添加opencv\build\include路径以及FaceDetection的inculde的路径) -&gt;库目录(添加opencv\build\x64\vc12\lib路径以及SeetaFace下的lib文件夹的路径)</p>
+<p>4.5.3：C\C++-&gt;预处理器-&gt;预处理器定义 -&gt; 添加%(PreprocessorDefinitions)、USE_OPENMP和SEETA_EXPORTS</p>
+<p>4.5.4：链接器—&gt;输入—&gt;附加依赖项—&gt;添加opencv_highgui2411.lib、opencv_imgproc2411.lib、opencv_core2411.lib和在3.6中生成的FaceDetection.lib</p>
+<p>4.6本地生成并运行：解决错误error LNK1112: 模块计算机类型“x64”与目标计算机类型“X86”冲突：右键FaceDetectionTest，点击属性，弹出项目属性页，链接器—-高级，配置改成所有配置，平台改为x64，目标计算机为MachineX64（/MACHINE：x64），然后右键解决方案-&gt;属性，把FaceDetectionTest平台改为x64，运行即可。</p>
+<p>如果显示没有包含opencv_highgui2411.dll文件，则重新检查一遍配置，然后重启试试</p>
+<p>Alignment和Identification同样也是这样，先创建dll，然后创建测试文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+    
+    </div>
+	
+	<div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -446,7 +643,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,754
+                  1,786
                 </span>
               
 
@@ -462,7 +659,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -495,13 +692,14 @@
 <p>auto eth0</p>
 <p># iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面</p>
 <p>iface eth0 inet static</p>
-<p>​    adress xx.xx.xx.xx</p>
+<p>​    address xx.xx.xx.xx</p>
 <p>​    netmask xx.xx.xx.xx</p>
 <p>​    gateway xx.xx.xx.xx</p>
 </blockquote>
-<p>第二步：</p>
+<p>第二步（可不配）：</p>
 <blockquote>
 <p>vi /etc/resolv.conf #修改为自己的网关</p>
+<p>/etc/init.d/networking restart</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1166,207 +1364,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://noblestaspiration.net/2018/04/23/WinRAR去广告/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Summary">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Summary's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/23/WinRAR去广告/" itemprop="url">WinRAR去广告</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T14:51:49+08:00">
-                2018-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/加密解密/" itemprop="url" rel="index">
-                    <span itemprop="name">加密解密</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/23/WinRAR去广告/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/23/WinRAR去广告/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  455
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="WinRAR去广告"><a href="#WinRAR去广告" class="headerlink" title="WinRAR去广告"></a>WinRAR去广告</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>WinRAR是一款强大的压缩文件管理工具，目前最新版本为5.50版本，但是中文免费版本在每次启动时，会弹出广告页面，本次破解目标是去除广告页面。如下图：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/23/WinRAR去广告/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-    
-    </div>
-	
-	<div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1416,7 +1418,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1574,7 +1576,7 @@
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共14.9k字</span>
+      <span class="post-count">博客全站共15.9k字</span>
   </div>
 
   <br/>

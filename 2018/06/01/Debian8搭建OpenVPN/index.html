@@ -90,19 +90,19 @@
 
 
 
-<meta name="description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
+<meta name="description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    address xx.xx.xx.xx ​">
 <meta name="keywords" content="Debian,OpenVPN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debian8搭建OpenVPN">
 <meta property="og:url" content="http://noblestaspiration.net/2018/06/01/Debian8搭建OpenVPN/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
-<meta property="og:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
+<meta property="og:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    address xx.xx.xx.xx ​">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p6flo4av7.bkt.clouddn.com/openvpn.png">
-<meta property="og:updated_time" content="2018-06-01T08:09:45.225Z">
+<meta property="og:updated_time" content="2018-07-02T02:18:25.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debian8搭建OpenVPN">
-<meta name="twitter:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    adress xx.xx.xx.xx ​">
+<meta name="twitter:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    address xx.xx.xx.xx ​">
 <meta name="twitter:image" content="http://p6flo4av7.bkt.clouddn.com/openvpn.png">
 
 
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,754
+                  1,786
                 </span>
               
 
@@ -463,7 +463,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -495,13 +495,14 @@
 <p>auto eth0</p>
 <p># iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面</p>
 <p>iface eth0 inet static</p>
-<p>​    adress xx.xx.xx.xx</p>
+<p>​    address xx.xx.xx.xx</p>
 <p>​    netmask xx.xx.xx.xx</p>
 <p>​    gateway xx.xx.xx.xx</p>
 </blockquote>
-<p>第二步：</p>
+<p>第二步（可不配）：</p>
 <blockquote>
 <p>vi /etc/resolv.conf #修改为自己的网关</p>
+<p>/etc/init.d/networking restart</p>
 </blockquote>
 <a id="more"></a>
 <p>网关可以在宿主机上面看到</p>
@@ -512,7 +513,7 @@
 <blockquote>
 <p>cat /dev/net/tun</p>
 </blockquote>
-<p>返回的是File descriptor in bad state说明可用，No such device则需要开通tun/tap服务</p>
+<p>返回的是File descriptor in bad state说明可用，No such device则需要开通tun/tap服务，可以更新系统（apt-get update &amp;&amp; apt-get dist-upgrade）之后再查看是否开启服务</p>
 <p>再查看iptables_net</p>
 <blockquote>
 <p>apt-get install iptables</p>
@@ -781,6 +782,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/07/02/Seetaface/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -896,7 +901,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1070,7 +1075,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共14.9k字</span>
+      <span class="post-count">博客全站共15.9k字</span>
   </div>
 
   <br/>

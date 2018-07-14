@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T12:23:34.745Z">
+<meta property="og:updated_time" content="2018-06-27T08:33:24.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="加密与解密学习">
 <meta name="twitter:description" content="Crack工具Ollydbg快捷键 F7-单步调试，如果遇到函数调用，会进入函数主体。shift+F7-单步调试，但是遇到中断，调试器会尝试进入被调试程序指定的异常处理。Ctrl+F7-自动步入，断点，异常会停下来，ESC可退出 F8-单步调试，遇到调用会一次执行完这个函数，shift和Ctrl和F7一样">
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,044
+                  1,108
                 </span>
               
 
@@ -559,7 +559,10 @@
 <li>EBP是存取某个时刻的栈顶指针，ESP是一直指向栈顶的指针，以方便对栈的操作</li>
 </ul>
 <h3 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h3><ul>
-<li>sete指令，cmp eax，ecx  sete cl，如果eax=ecx，那么cl为1，否则为0 </li>
+<li>sete指令，cmp eax，ecx  sete cl，如果eax=ecx，那么cl为1，否则为0 ，最清楚的解释是，sete指令是当zf=1时，将cl置1，否则置0</li>
+<li>movzx，高位全用0填充</li>
+<li>movsx，32位，低16位的第一位为1则高16位全用1填充，为0则用0填充</li>
+<li>JBE，前者小于等于后者跳转</li>
 </ul>
 <h2 id="杂项知识点"><a href="#杂项知识点" class="headerlink" title="杂项知识点"></a>杂项知识点</h2><ul>
 <li>PE—Portable Executable可执行文件</li>
@@ -798,7 +801,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -972,7 +975,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共14.9k字</span>
+      <span class="post-count">博客全站共15.9k字</span>
   </div>
 
   <br/>
