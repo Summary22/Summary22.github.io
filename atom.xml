@@ -348,9 +348,9 @@
     
       <category term="Ollydbg" scheme="http://noblestaspiration.net/tags/Ollydbg/"/>
     
-      <category term="逆向破解" scheme="http://noblestaspiration.net/tags/%E9%80%86%E5%90%91%E7%A0%B4%E8%A7%A3/"/>
-    
       <category term="Crack" scheme="http://noblestaspiration.net/tags/Crack/"/>
+    
+      <category term="逆向破解" scheme="http://noblestaspiration.net/tags/%E9%80%86%E5%90%91%E7%A0%B4%E8%A7%A3/"/>
     
       <category term="Badboy" scheme="http://noblestaspiration.net/tags/Badboy/"/>
     
@@ -379,11 +379,11 @@
     
       <category term="Ollydbg" scheme="http://noblestaspiration.net/tags/Ollydbg/"/>
     
-      <category term="逆向破解" scheme="http://noblestaspiration.net/tags/%E9%80%86%E5%90%91%E7%A0%B4%E8%A7%A3/"/>
-    
       <category term="Crack" scheme="http://noblestaspiration.net/tags/Crack/"/>
     
       <category term="反汇编" scheme="http://noblestaspiration.net/tags/%E5%8F%8D%E6%B1%87%E7%BC%96/"/>
+    
+      <category term="逆向破解" scheme="http://noblestaspiration.net/tags/%E9%80%86%E5%90%91%E7%A0%B4%E8%A7%A3/"/>
     
   </entry>
   
@@ -480,11 +480,11 @@
   </entry>
   
   <entry>
-    <title>一点makedown</title>
+    <title>一点markdown</title>
     <link href="http://noblestaspiration.net/2018/03/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0-markdown/"/>
     <id>http://noblestaspiration.net/2018/03/15/第一篇文章-markdown/</id>
     <published>2018-03-15T14:17:57.454Z</published>
-    <updated>2018-03-30T02:23:34.016Z</updated>
+    <updated>2018-08-22T03:26:45.783Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>先写一点自己可能用得上的语法</p></blockquote><p>有几个#号就是几级标题</p><h1 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h4 id="四级"><a href="#四级" class="headerlink" title="四级"></a>四级</h4><blockquote><p>这是&gt;加空格</p><blockquote><p>两个&gt;加空格</p></blockquote></blockquote><a id="more"></a><ul><li>一个<em>号加空格表示强调，可以在句中表示强调不过要以什么符号开始，就以什么结束，例子</em>这个是星号*，如果回车还是一样的格式，不想这样要这个格式，那就再回车一下</li><li><ul><li>回车再*号就会是空心小圆圈</li></ul></li></ul><ul><li>一个-减号也是一个小黑点这样</li></ul><p>像这样-–，***变成一个分隔符</p><hr><p>链接有两种形式：</p><ul><li>行内式：链接可以用[]加上()这样来书写，[]中间写链接内容，()中间写链接地址</li></ul><p>​         <a href="noblestaspiration.net">我博客链接</a></p><ul><li><p>参考式：两个[]连起来</p><p>例子:<a href="noblestaspiration.net" title="mine">我的博客</a></p></li></ul><ul><li>&lt;noblestaspiration.net&gt;   自动链接</li></ul><p>三个`这个符号是代码区，紧跟在三个符号后面的是语言类型，可以写Python或者C啊这些</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;<span class="number">111111</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>两个``中间写的内容会变成其他颜色，但是第一个符号要加上空格</p><p><code>这就是其他颜色</code></p><p>插入图片是![]（）其中[]中填的是图片名称，后面写的是路径加上图片的名称，名称一定要加上类型，比如.jpg什么的，下面插一张图片</p><p><img src="/2018/03/15/第一篇文章-markdown/D:/MyBlog\hexo\source\uploads\123.jpg" alt="123"></p><blockquote class="blockquote-center">这里是内容</blockquote><p>一对&lt;&gt;里面写blockquote class=”blockquote-center”这是搞一个像留言板下面那样的一个区域然后后面再加上一对&lt;&gt;里面写/blockquote这样就行了</p><p>另外\反斜杠可以帮助插其他符号，下面的就是前面已经加上反斜杠了</p><p>+ </p><p>`</p><p>*</p><p>_</p><p>{}</p><p>[]</p><p>()</p><p>#</p><p>+</p><p>-</p><p>.</p><p>!</p><p>多级列表：</p><ul><li>这是第一级<ul><li>在上一行回车再回车之后tab再-加上空格</li></ul></li></ul>]]></content>
     
@@ -506,7 +506,7 @@
       <category term="学习" scheme="http://noblestaspiration.net/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="makedown" scheme="http://noblestaspiration.net/tags/makedown/"/>
+      <category term="markdown" scheme="http://noblestaspiration.net/tags/markdown/"/>
     
       <category term="基础" scheme="http://noblestaspiration.net/tags/%E5%9F%BA%E7%A1%80/"/>
     
