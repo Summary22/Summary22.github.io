@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="自己在使用linux时候的总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T07:26:49.151Z">
+<meta property="og:updated_time" content="2018-08-27T07:35:16.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="自己在使用linux时候的总结，不定时更新">
@@ -385,7 +385,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T15:26:49+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T15:35:16+08:00">
                 2018-08-27
               </time>
             
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,293
+                  2,296
                 </span>
               
 
@@ -550,14 +550,16 @@
 </li>
 </ul>
 <ul>
-<li>查看磁盘使用情况：<code>df -h(所有)</code></li>
-</ul>
+<li><p>查看磁盘使用情况：<code>df -h</code>查看物理机</p>
 <p><code>du -h</code>查看当前目录下的空间使用情况，这条指令会遍历</p>
-<ul>
-<li>查看内存：</li>
+</li>
 </ul>
+<ul>
+<li><p>查看内存：</p>
 <p><code>free</code> 默认kb，后面加上参数-m就可看mb<br><code>top</code>  类似任务管理器，查看运行程序<br><code>vmstat</code>  主要参数free空闲，buff已用缓冲数目，cache已用缓存数目<br><code>vgdiplay</code>  查看卷组名称及卷组使用情况<br><code>lvdisplay</code>  当前逻辑卷空间状态</p>
 <p><code>LVM</code>扩容参考网址:<a href="https://blog.csdn.net/u012439646/article/details/73380197" target="_blank" rel="noopener">https://blog.csdn.net/u012439646/article/details/73380197</a></p>
+</li>
+</ul>
 <ul>
 <li>擦除网卡缓存：<code>ip addr flush eth0</code></li>
 <li>显示已加载的系统的模块：<code>lsmod</code></li>
@@ -608,7 +610,7 @@
 <li><p>centos7中根据文件大小排序以及jenkins配置每周删除一次jobs日志信息：<a href="https://blog.csdn.net/u013066244/article/details/70232050" target="_blank" rel="noopener">https://blog.csdn.net/u013066244/article/details/70232050</a></p>
 </li>
 <li><p>shell统计某个目录文件数量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash  </span><br><span class="line"> </span><br><span class="line">cd /home/a              //切换到要统计文件数目的目录</span><br><span class="line"></span><br><span class="line">fcnt=0</span><br><span class="line">dcnt=0</span><br><span class="line">frcnt=0</span><br><span class="line">fwcnt=0</span><br><span class="line">fxcnt=0</span><br><span class="line">for file in *</span><br><span class="line">do</span><br><span class="line">    if [ -f $file ];then</span><br><span class="line">        let fcnt+=1</span><br><span class="line">        if [ -r $file ];then</span><br><span class="line">           let frcnt+=1</span><br><span class="line">        fi</span><br><span class="line">        if [ -w $file ];then</span><br><span class="line">           let fwcnt+=1</span><br><span class="line">        fi</span><br><span class="line">        if [ -x $file ];then</span><br><span class="line">           let fxcnt+=1</span><br><span class="line">        fi</span><br><span class="line">    elif [ -d $file ];then</span><br><span class="line">        let dcnt+=1</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo &quot;There are $fcnt files in $PWD&quot;</span><br><span class="line">echo -e &quot;\tThere are $frcnt readable files in $PWD&quot;</span><br><span class="line">echo -e &quot;\tThere are $fwcnt writeable files in $PWD&quot;</span><br><span class="line">echo -e &quot;\tThere are $fxcnt executeable files in $PWD&quot;</span><br><span class="line">echo &quot;There are $dcnt directories in $PWD&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash  </span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">cd</span> /home/a              //切换到要统计文件数目的目录</span><br><span class="line"></span><br><span class="line">fcnt=0</span><br><span class="line">dcnt=0</span><br><span class="line">frcnt=0</span><br><span class="line">fwcnt=0</span><br><span class="line">fxcnt=0</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> [ -f <span class="variable">$file</span> ];<span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> fcnt+=1</span><br><span class="line">        <span class="keyword">if</span> [ -r <span class="variable">$file</span> ];<span class="keyword">then</span></span><br><span class="line">           <span class="built_in">let</span> frcnt+=1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ -w <span class="variable">$file</span> ];<span class="keyword">then</span></span><br><span class="line">           <span class="built_in">let</span> fwcnt+=1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ -x <span class="variable">$file</span> ];<span class="keyword">then</span></span><br><span class="line">           <span class="built_in">let</span> fxcnt+=1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">elif</span> [ -d <span class="variable">$file</span> ];<span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> dcnt+=1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"There are <span class="variable">$fcnt</span> files in <span class="variable">$PWD</span>"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\tThere are <span class="variable">$frcnt</span> readable files in <span class="variable">$PWD</span>"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\tThere are <span class="variable">$fwcnt</span> writeable files in <span class="variable">$PWD</span>"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\tThere are <span class="variable">$fxcnt</span> executeable files in <span class="variable">$PWD</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"There are <span class="variable">$dcnt</span> directories in <span class="variable">$PWD</span>"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
