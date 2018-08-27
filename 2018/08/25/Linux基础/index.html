@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="一些常用Linux指令以及使用Linux中遇到的问题  自己在Linux的一些常用指令总结，不定时更新">
+<meta name="description" content="自己在Linux的一些常用指令总结，不定时更新">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux基础">
 <meta property="og:url" content="http://noblestaspiration.net/2018/08/25/Linux基础/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
-<meta property="og:description" content="一些常用Linux指令以及使用Linux中遇到的问题  自己在Linux的一些常用指令总结，不定时更新">
+<meta property="og:description" content="自己在Linux的一些常用指令总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T03:36:19.207Z">
+<meta property="og:updated_time" content="2018-08-27T06:56:18.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
-<meta name="twitter:description" content="一些常用Linux指令以及使用Linux中遇到的问题  自己在Linux的一些常用指令总结，不定时更新">
+<meta name="twitter:description" content="自己在Linux的一些常用指令总结，不定时更新">
 
 
 
@@ -385,7 +385,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T11:36:19+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T14:56:18+08:00">
                 2018-08-27
               </time>
             
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,414
+                  2,398
                 </span>
               
 
@@ -483,24 +483,22 @@
       
 
       
-        <blockquote><p>一些常用Linux指令以及使用Linux中遇到的问题</p>
-</blockquote>
-<blockquote class="blockquote-center">自己在Linux的一些常用指令总结，不定时更新</blockquote>
+        <blockquote class="blockquote-center">自己在Linux的一些常用指令总结，不定时更新</blockquote>
 
-<iframe src="https://music.163.com/song?id=4225903&userid=92067983" width="930" height="542" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://music.163.com/outchain/player?type=2&id=441458&auto=1&height=66" width="930" height="542" frameborder="0" allowfullscreen></iframe>
 <a id="more"></a>
 <p>#Linux</p>
 <h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><ul>
-<li><p>cp：<figure class="highlight plain"><figcaption><span>-rf</span><a href="/var/cos/*">/root```把var/cos下所有东西拷贝到root下</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* scp：```scp [-r或者其他参数] [文件名或文件夹名] [root@IP:/文件路径]```跨机器传输</span><br><span class="line"></span><br><span class="line">* 新建文件夹：单级：```mkdir [文件名]```    多级：```mkdir -p [文件名]</span><br></pre></td></tr></table></figure></p>
+<li><p>cp：<code>cp -rf /var/cos/* /root</code>把var/cos下所有东西拷贝到root下</p>
 </li>
-<li><p>创建文件：<figure class="highlight plain"><figcaption><span>[文件名+扩展名]```，```rm [文件名]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 移动文件：```mv</span><br></pre></td></tr></table></figure></p>
+<li><p>scp：<code>scp [-r或者其他参数][文件名或文件夹名] [root@IP:/文件路径]</code>跨机器传输</p>
 </li>
-<li><p>删除文件：单个文件：<figure class="highlight plain"><figcaption><span>[文件名]```（删文件夹要```rmdir [文件名]```）    删除目录及目录所有文件和子目录：```rm -rf [文件名]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 查看文件类型：```file [文件名]</span><br></pre></td></tr></table></figure></p>
+<li><p>新建文件夹：单级：<figure class="highlight plain"><figcaption><span>[文件名]```    多级：```mkdir -p [文件名]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建文件：```touch [文件名+扩展名]```，```rm [文件名]</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>查找指令：</p>
-<ul>
-<li><strong>find</strong>：<figure class="highlight plain"><figcaption><span>-name/-type filename```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    ```find -type f -mmin -10 ```所有过去10分钟更新过的普通文件，不加`-type f`则搜索普通文件+特殊文件+目录</span><br><span class="line">  + **locate**：`locate`是`find -name`的另外一种写法`locate`快很多，因为只搜索`/var/lib/locatedb`,这个数据库中包含了本地所有文件信息</span><br><span class="line">    ```locate /etc/sh``，搜索etc下所有sh开头的文件</span><br><span class="line">    ```locate ~/m```，搜索所有m开头的文件</span><br><span class="line">    ```locate -i ~/m```，用户主目录下所有m开头的文件，并且忽略大小写</span><br><span class="line">  + **whereis**，只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s），如果省略所有信息则返回所有信息</span><br><span class="line">  + **which**，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果，可以看到某个命令是否存在，以及执行的到底是哪个位置的命令</span><br><span class="line">  + 总结：**which**       查看可执行文件的位置 </span><br><span class="line">    **whereis**        查看文件的位置 </span><br><span class="line">    **locate**        配合数据库查看文件位置 </span><br><span class="line">    **find**       实际搜寻硬盘查询文件名称</span><br><span class="line"></span><br><span class="line">  参考链接：https://www.cnblogs.com/kex1n/p/5233821.html</span><br><span class="line"></span><br><span class="line">* 修改权限：```chmod [-cfvR][--help] [--version] [文件名]</span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><p>移动文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 删除文件：单个文件：```rm [文件名]```（删文件夹要```rmdir [文件名]```）    删除目录及目录所有文件和子目录：```rm -rf [文件名]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>查看文件类型：<figure class="highlight plain"><figcaption><span>[文件名]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 查找指令：</span><br><span class="line"></span><br><span class="line">  + **find**：```find -name/-type filename</span><br></pre></td></tr></table></figure></p>
+  <figure class="highlight plain"><figcaption><span>-type f -mmin -10 ```所有过去10分钟更新过的普通文件，不加`-type f`则搜索普通文件+特殊文件+目录</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  + **locate**：`locate`是`find -name`的另外一种写法`locate`快很多，因为只搜索`/var/lib/locatedb`,这个数据库中包含了本地所有文件信息</span><br><span class="line">    ```locate /etc/sh``，搜索etc下所有sh开头的文件</span><br><span class="line">    ```locate ~/m```，搜索所有m开头的文件</span><br><span class="line">    ```locate -i ~/m```，用户主目录下所有m开头的文件，并且忽略大小写</span><br><span class="line">  + **whereis**，只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s），如果省略所有信息则返回所有信息</span><br><span class="line">  + **which**，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果，可以看到某个命令是否存在，以及执行的到底是哪个位置的命令</span><br><span class="line">  + 总结：**which**       查看可执行文件的位置 </span><br><span class="line">    **whereis**        查看文件的位置 </span><br><span class="line">    **locate**        配合数据库查看文件位置 </span><br><span class="line">    **find**       实际搜寻硬盘查询文件名称</span><br><span class="line"></span><br><span class="line">  参考链接：https://www.cnblogs.com/kex1n/p/5233821.html</span><br><span class="line"></span><br><span class="line">* 修改权限：```chmod [-cfvR][--help] [--version] [文件名]</span><br></pre></td></tr></table></figure>
 <p>参数详解：<strong>mode : 权限设定字串，格式如下 : [ugoa…][[+-=][rwxX]…][,…]，其中 u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。</strong></p>
 <p><strong>-c : 若该档案权限确实已经更改，才显示其更改动作 </strong><br><strong>-f : 若该档案权限无法被更改也不要显示错误讯息</strong><br><strong>-v : 显示权限变更的详细资料 </strong><br><strong>-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更) </strong><br><strong>–help : 显示辅助说明 </strong><br><strong>–version : 显示版本</strong></p>
 <p><strong>+ 表示增加权限、- 表示取消权限、= 表示唯一设定权限。</strong> </p>
