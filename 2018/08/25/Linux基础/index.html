@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="自己在使用linux时候的总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T07:13:55.492Z">
+<meta property="og:updated_time" content="2018-08-27T07:20:49.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="自己在使用linux时候的总结，不定时更新">
@@ -385,7 +385,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T15:13:55+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T15:20:49+08:00">
                 2018-08-27
               </time>
             
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,376
+                  2,293
                 </span>
               
 
@@ -485,7 +485,7 @@
       
         <blockquote class="blockquote-center">自己在使用linux时候的总结，不定时更新</blockquote>
 
-<iframe src="https://music.163.com/outchain/player?type=2&id=441458&auto=1&height=66" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://music.163.com/outchain/player?type=2&id=441320&auto=1&height=66" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
 <a id="more"></a>
 <h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><ul>
 <li><p>cp：<code>cp -rf /var/cos/* /root</code>把var/cos下所有东西拷贝到root下</p>
@@ -565,7 +565,45 @@
 <ul>
 <li><p>查看版本：<code>cat /etc/redhat-release</code>(目测是隐藏文件)或者<code>uname -a（centos）</code></p>
 </li>
-<li><p>查看应用：`rpm -qa | grep [软件名]<figure class="highlight plain"><figcaption><span>-q [软件名]`</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* `/dev/sda3`表示的意思：/dev是表示设备，访问外部设备的端口（其实就是文件）</span><br><span class="line"></span><br><span class="line">  `/dev/hd[a-t]:IDE`设备，hda，hdb表示harddisk，a表示第一个盘等等</span><br><span class="line"></span><br><span class="line">  `/dev/sd[a-z]`:SCSI设备和SATA设备，a表示第一个，以此类推，1-4分给主分区。其他的是扩展分区</span><br><span class="line"></span><br><span class="line">  `/dev/fd[0-7]`:标准软驱</span><br><span class="line">  `/dev/md[0-31]`:软raid设备</span><br><span class="line">  `/dev/loop[0-7]`:本地回环设备</span><br><span class="line">  `/dev/ram[0-15]`:内存</span><br><span class="line"></span><br><span class="line">  linux下各个文件目录的意思：https://www.jb51.net/LINUXjishu/32180.html</span><br><span class="line"></span><br><span class="line">* 查看系统时间并且修改：</span><br><span class="line">  查看：当前：`data`，硬件时间：`hwclock`</span><br><span class="line">  修改：`date -s “2018-08-24 10:45:10”`</span><br><span class="line">  同步：`hwclock --systohc`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">##安装软件</span><br><span class="line"></span><br><span class="line">### Debian下</span><br><span class="line"></span><br><span class="line">* sudo：进入root：su，输入密码，然后apt-get install sudo，这样可以使用sudo</span><br><span class="line"></span><br><span class="line">* vim：安装过程中如果遇到下面`遇到的问题`中第二个问题则先解决，然后`apt-get update&amp;apt-get upgrade`</span><br><span class="line">  出现需要先安装`common`，则就是`apt-get remove vim-common`，然后再`apt-get install vim`</span><br><span class="line">  参考链接：https://www.cnblogs.com/drfxiaoliuzi/p/4143933.html</span><br><span class="line"></span><br><span class="line">  配置源的参考链接：https://blog.csdn.net/w6280190/article/details/80840728</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 遇到的问题</span><br><span class="line"></span><br><span class="line">### Debian下</span><br><span class="line"></span><br><span class="line">* 运行脚本：先要有执行权限：`chmod u+x [文件名]`，执行：`bash [文件名.sh]或者./[文件名]`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* ping通自己的ip，ping不通网关，要不就是自己的网关设置错了，要不就是IP冲突，改网关子网掩码和IP试试，自己虚拟机的debian非常奇怪，网关居然是192.168.213.2，IP没有冲突但是网关设置成192.168.1.1就不行，子网掩码要设成24（这个问题有待商榷，这个可能是错误的，那台Debian有些问题）</span><br><span class="line"></span><br><span class="line">* Debian安装缺少光盘源并且一直检测cdrom，打开/etc/apt/sources.list（最好先备份）文件，注释掉cdrom那一行，然后添加上163源或者其他源，然后再执行apt-get update和apt-get upgrade更新下deb仓库，这样以后再使用apt-get安装时就不会再搜寻cdrom了</span><br><span class="line"></span><br><span class="line">  163源：deb http://mirrors.163.com/debian/ squeeze main non-free contrib</span><br><span class="line">  deb http://mirrors.163.com/debian/ squeeze-proposed-updates main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian/ squeeze main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian/ squeeze-proposed-updates main non-free contrib</span><br><span class="line"></span><br><span class="line">  sohu：deb http://mirrors.sohu.com/debian/ lenny main non-free contrib</span><br><span class="line">  deb http://mirrors.sohu.com/debian/ lenny-proposed-updates main non-free contrib</span><br><span class="line">  deb-src http://mirrors.sohu.com/debian/ lenny main non-free contrib</span><br><span class="line">  deb-src http://mirrors.sohu.com/debian/ lenny-proposed-updates main non-free contrib</span><br><span class="line"></span><br><span class="line">  试了上面的源感觉不行，所以重新找的源：https://blog.csdn.net/yjk13703623757/article/details/78943345/</span><br><span class="line"></span><br><span class="line">  其他源：</span><br><span class="line"></span><br><span class="line">  jessie：deb http://mirrors.163.com/debian/ jessie main non-free contrib</span><br><span class="line">  deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib</span><br><span class="line">  deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian/ jessie main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib</span><br><span class="line">  deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</span><br><span class="line">  deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 常见脚本</span><br><span class="line"></span><br><span class="line">* centos统计ping输出日志的脚本：</span><br><span class="line"></span><br><span class="line">  ```bash</span><br><span class="line">  #!/bin/sh</span><br><span class="line">  ping 10.121.82.94 -c 172800 | awk &apos;&#123; print $0&quot;\t&quot; strftime(&quot;%H:%M:%S&quot;,systime()) &#125;&apos; &gt; /tmp/ping94.log &amp;</span><br></pre></td></tr></table></figure></p>
+<li><p>查看应用：<code>rpm -qa | grep [软件名]</code>或<code>rpm -q [软件名]</code></p>
+</li>
+<li><p><code>/dev/sda3</code>表示的意思：/dev是表示设备，访问外部设备的端口（其实就是文件）</p>
+<p><code>/dev/hd[a-t]:IDE</code>设备，hda，hdb表示harddisk，a表示第一个盘等等</p>
+<p><code>/dev/sd[a-z]</code>:SCSI设备和SATA设备，a表示第一个，以此类推，1-4分给主分区。其他的是扩展分区</p>
+<p><code>/dev/fd[0-7]</code>:标准软驱<br><code>/dev/md[0-31]</code>:软raid设备<br><code>/dev/loop[0-7]</code>:本地回环设备<br><code>/dev/ram[0-15]</code>:内存</p>
+<p>linux下各个文件目录的意思：<a href="https://www.jb51.net/LINUXjishu/32180.html" target="_blank" rel="noopener">https://www.jb51.net/LINUXjishu/32180.html</a></p>
+</li>
+<li><p>查看系统时间并且修改：<br>查看：当前：<code>data</code>，硬件时间：<code>hwclock</code><br>修改：<code>date -s “2018-08-24 10:45:10”</code><br>同步：<code>hwclock --systohc</code></p>
+</li>
+</ul>
+<hr>
+<p>##安装软件</p>
+<h3 id="Debian下"><a href="#Debian下" class="headerlink" title="Debian下"></a>Debian下</h3><ul>
+<li><p>sudo：进入root：su，输入密码，然后apt-get install sudo，这样可以使用sudo</p>
+</li>
+<li><p>vim：安装过程中如果遇到下面<code>遇到的问题</code>中第二个问题则先解决，然后<code>apt-get update&amp;apt-get upgrade</code><br>出现需要先安装<code>common</code>，则就是<code>apt-get remove vim-common</code>，然后再<code>apt-get install vim</code><br>参考链接：<a href="https://www.cnblogs.com/drfxiaoliuzi/p/4143933.html" target="_blank" rel="noopener">https://www.cnblogs.com/drfxiaoliuzi/p/4143933.html</a></p>
+<p>配置源的参考链接：<a href="https://blog.csdn.net/w6280190/article/details/80840728" target="_blank" rel="noopener">https://blog.csdn.net/w6280190/article/details/80840728</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="Debian下-1"><a href="#Debian下-1" class="headerlink" title="Debian下"></a>Debian下</h3><ul>
+<li>运行脚本：先要有执行权限：<code>chmod u+x [文件名]</code>，执行：<code>bash [文件名.sh]或者./[文件名]</code></li>
+</ul>
+<ul>
+<li><p>ping通自己的ip，ping不通网关，要不就是自己的网关设置错了，要不就是IP冲突，改网关子网掩码和IP试试，自己虚拟机的debian非常奇怪，网关居然是192.168.213.2，IP没有冲突但是网关设置成192.168.1.1就不行，子网掩码要设成24（这个问题有待商榷，这个可能是错误的，那台Debian有些问题）</p>
+</li>
+<li><p>Debian安装缺少光盘源并且一直检测cdrom，打开/etc/apt/sources.list（最好先备份）文件，注释掉cdrom那一行，然后添加上163源或者其他源，然后再执行apt-get update和apt-get upgrade更新下deb仓库，这样以后再使用apt-get安装时就不会再搜寻cdrom了</p>
+<p>163源：deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze-proposed-updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze-proposed-updates main non-free contrib</p>
+<p>sohu：deb <a href="http://mirrors.sohu.com/debian/" target="_blank" rel="noopener">http://mirrors.sohu.com/debian/</a> lenny main non-free contrib<br>deb <a href="http://mirrors.sohu.com/debian/" target="_blank" rel="noopener">http://mirrors.sohu.com/debian/</a> lenny-proposed-updates main non-free contrib<br>deb-src <a href="http://mirrors.sohu.com/debian/" target="_blank" rel="noopener">http://mirrors.sohu.com/debian/</a> lenny main non-free contrib<br>deb-src <a href="http://mirrors.sohu.com/debian/" target="_blank" rel="noopener">http://mirrors.sohu.com/debian/</a> lenny-proposed-updates main non-free contrib</p>
+<p>试了上面的源感觉不行，所以重新找的源：<a href="https://blog.csdn.net/yjk13703623757/article/details/78943345/" target="_blank" rel="noopener">https://blog.csdn.net/yjk13703623757/article/details/78943345/</a></p>
+<p>其他源：</p>
+<p>jessie：deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-updates main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-backports main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-backports main non-free contrib<br>deb <a href="http://mirrors.163.com/debian-security/" target="_blank" rel="noopener">http://mirrors.163.com/debian-security/</a> jessie/updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian-security/" target="_blank" rel="noopener">http://mirrors.163.com/debian-security/</a> jessie/updates main non-free contrib</p>
+</li>
+</ul>
+<hr>
+<h2 id="常见脚本"><a href="#常见脚本" class="headerlink" title="常见脚本"></a>常见脚本</h2><ul>
+<li><p>centos统计ping输出日志的脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">ping 10.121.82.94 -c 172800 | awk <span class="string">'&#123; print $0"\t" strftime("%H:%M:%S",systime()) &#125;'</span> &gt; /tmp/ping94.log &amp;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>centos7中根据文件大小排序以及jenkins配置每周删除一次jobs日志信息：<a href="https://blog.csdn.net/u013066244/article/details/70232050" target="_blank" rel="noopener">https://blog.csdn.net/u013066244/article/details/70232050</a></p>
 </li>
@@ -924,7 +962,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本指令"><span class="nav-number">1.1.</span> <span class="nav-text">基本指令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本指令"><span class="nav-number">1.1.</span> <span class="nav-text">基本指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下"><span class="nav-number">1.1.1.</span> <span class="nav-text">Debian下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.2.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Debian下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见脚本"><span class="nav-number">1.3.</span> <span class="nav-text">常见脚本</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -974,7 +1012,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共24.5k字</span>
+      <span class="post-count">博客全站共24.4k字</span>
   </div>
 
   <br/>
