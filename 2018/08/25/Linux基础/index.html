@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="自己在使用linux时候的总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T07:40:45.020Z">
+<meta property="og:updated_time" content="2018-09-03T08:59:05.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="自己在使用linux时候的总结，不定时更新">
@@ -385,8 +385,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T15:40:45+08:00">
-                2018-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-03T16:59:05+08:00">
+                2018-09-03
               </time>
             
           </span>
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,296
+                  2,921
                 </span>
               
 
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  13
                 </span>
               
             </div>
@@ -541,12 +541,36 @@
 <p>编辑：<code>crontab -e</code>，删除：<code>crontab -r</code></p>
 <p>E：<code>echo &quot;1 1 * * * command&quot; &gt;&gt; /var/spool/cron/root</code><br>中间五个分别是分时日月周，*/10分钟的话，10分钟执行一次。10-23/2小时的话，上午十点到晚上23点每两个小时执行一次</p>
 </li>
+<li><p>ln：<code>ln [选项][参数]</code>链接指令。其中选项s常用，其他的见<a href="http://man.linuxde.net/ln，-s或--symbolic：对源文件建立符号连接，而非硬连接，如果不打参数默认硬链接。" target="_blank" rel="noopener">http://man.linuxde.net/ln，-s或--symbolic：对源文件建立符号连接，而非硬连接，如果不打参数默认硬链接。</a></p>
+<p>E:将目录<code>/usr/mengqc/mub1</code>下的文件m2.c链接到目录<code>/usr/liu</code>下的文件a2.c：</p>
+<blockquote>
+<p>cd /usr/mengpc</p>
+<p>ln /mub1/m2.c /usr/liu/a2.c</p>
+</blockquote>
+</li>
+<li><p>tar：<code>tar （选项）（参数）</code></p>
+<p>选项（部分）：</p>
+<p>-d：记录文件的差别；<br>-x或–extract或–get：从备份文件中还原文件；<br>-t或–list：列出备份文件的内容；<br>-z或–gzip或–ungzip：通过gzip指令处理备份文件；<br>-Z或–compress或–uncompress：通过compress指令处理备份文件；<br>-f&lt;备份文件&gt;或–file=&lt;备份文件&gt;：指定备份文件；<br>-v或–verbose：显示指令执行过程；<br>-r：添加文件到已经压缩的文件；<br>-u：添加改变了和现有的文件到已经存在的压缩文件；<br>-j：支持bzip2解压文件；<br>-v：显示操作过程；<br>-l：文件系统边界设置；<br>-k：保留原有文件不覆盖；<br>-m：保留文件不被覆盖；<br>-w：确认压缩文件的正确性；</p>
+<p>E：</p>
+<blockquote>
+<p>压缩：</p>
+<p>tar –cvf jpg.tar <em>.jpg //将目录里所有jpg文件打包成tar.jpg<br>tar –czf jpg.tar.gz </em>.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz<br>tar –cjf jpg.tar.bz2 <em>.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2<br>tar –cZf jpg.tar.Z </em>.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z<br>rar a jpg.rar <em>.jpg //rar格式的压缩，需要先下载rar for Linux<br>zip jpg.zip </em>.jpg //zip格式的压缩，需要先下载zip for Linux</p>
+<p>解压：</p>
+<p>tar –xvf file.tar //解压 tar包<br>tar -xzvf file.tar.gz //解压tar.gz<br>tar -xjvf file.tar.bz2   //解压 tar.bz2<br>tar –xZvf file.tar.Z   //解压tar.Z<br>unrar e file.rar //解压rar<br>unzip file.zip //解压zip</p>
+</blockquote>
+<p>参考链接：<a href="http://man.linuxde.net/tar" target="_blank" rel="noopener">http://man.linuxde.net/tar</a></p>
+</li>
+<li><p>netstat：<code>netstat -an</code> “-a”选项意在显示所有连接，当不附加”-n”选项时，它显示的是本地计算机的netbios名字+端口号。而加了”-n”选项后，它显示的是本地IP地址+端口号。</p>
+</li>
 <li><p>查看进程：<code>ps -ef | grep httpd</code>（检查httpd进程是否存在）</p>
 <p>参数详解：<strong>ps:将某个进程显示出来</strong></p>
 <p><strong>-e:显示所有进程</strong></p>
 <p><strong>-f:全格式</strong></p>
 <p><strong>| ：管道命令，ps与grep同时执行</strong><br><strong>grep（Global Regular Expression Print）：查找，强大的文本搜索工具，使用正则表达式搜索文本并把匹配的行打印出来</strong></p>
 <p>E：假如现在正在mv文件但是没有进度条，可以ps -ef | grep mv来看是否移动完了</p>
+<p>杀死进程：<code>killall 进程名</code></p>
+</li>
+<li><p>查看端口：<code>lsof -i:端口号</code></p>
 </li>
 </ul>
 <ul>
@@ -589,6 +613,7 @@
 <hr>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="Debian下-1"><a href="#Debian下-1" class="headerlink" title="Debian下"></a>Debian下</h3><ul>
 <li>运行脚本：先要有执行权限：<code>chmod u+x [文件名]</code>，执行：<code>bash [文件名.sh]或者./[文件名]</code></li>
+<li>apt-get install之后404 not found的话那就直接先update一下</li>
 </ul>
 <ul>
 <li><p>ping通自己的ip，ping不通网关，要不就是自己的网关设置错了，要不就是IP冲突，改网关子网掩码和IP试试，自己虚拟机的debian非常奇怪，网关居然是192.168.213.2，IP没有冲突但是网关设置成192.168.1.1就不行，子网掩码要设成24（这个问题有待商榷，这个可能是错误的，那台Debian有些问题）</p>
@@ -720,6 +745,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/09/03/Debian8下搭建MooseFS/" rel="prev" title="Debian8下搭建MooseFS">
+                Debian8下搭建MooseFS <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -835,7 +864,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -846,7 +875,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -857,7 +886,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1013,7 +1042,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共24.4k字</span>
+      <span class="post-count">博客全站共25.9k字</span>
   </div>
 
   <br/>
