@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Summary&#39;s Blog">
 <meta property="og:description" content="自己在使用linux时候的总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T07:32:31.222Z">
+<meta property="og:updated_time" content="2018-11-27T02:07:48.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="自己在使用linux时候的总结，不定时更新">
@@ -385,8 +385,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-04T15:32:31+08:00">
-                2018-09-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-27T10:07:48+08:00">
+                2018-11-27
               </time>
             
           </span>
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,968
+                  3,531
                 </span>
               
 
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  16
                 </span>
               
             </div>
@@ -541,7 +541,7 @@
 <p>编辑：<code>crontab -e</code>，删除：<code>crontab -r</code></p>
 <p>E：<code>echo &quot;1 1 * * * command&quot; &gt;&gt; /var/spool/cron/root</code><br>中间五个分别是分时日月周，*/10分钟的话，10分钟执行一次。10-23/2小时的话，上午十点到晚上23点每两个小时执行一次</p>
 </li>
-<li><p>ln：<code>ln [选项][参数]</code>链接指令。其中选项s常用，其他的见<a href="http://man.linuxde.net/ln，-s或--symbolic：对源文件建立符号连接，而非硬连接，如果不打参数默认硬链接。" target="_blank" rel="noopener">http://man.linuxde.net/ln，-s或--symbolic：对源文件建立符号连接，而非硬连接，如果不打参数默认硬链接。</a></p>
+<li><p>ln：<code>ln [选项][参数]</code>链接指令。其中选项s常用，其他的见<a href="http://man.linuxde.net/ln" target="_blank" rel="noopener">http://man.linuxde.net/ln</a> ，-s或–symbolic：对源文件建立符号连接，而非硬连接，如果不打参数默认硬链接。</p>
 <p>E:将目录<code>/usr/mengqc/mub1</code>下的文件m2.c链接到目录<code>/usr/liu</code>下的文件a2.c：</p>
 <blockquote>
 <p>cd /usr/mengpc</p>
@@ -562,6 +562,8 @@
 </li>
 <li><p>netstat：<code>netstat -an</code> “-a”选项意在显示所有连接，当不附加”-n”选项时，它显示的是本地计算机的netbios名字+端口号。而加了”-n”选项后，它显示的是本地IP地址+端口号。</p>
 </li>
+<li><p>重新动态获取IP：<code>dhclient -r /释放IP</code> 然后<code>dhclient</code></p>
+</li>
 <li><p>查看进程：<code>ps -ef | grep httpd</code>（检查httpd进程是否存在）</p>
 <p>参数详解：<strong>ps:将某个进程显示出来</strong></p>
 <p><strong>-e:显示所有进程</strong></p>
@@ -571,6 +573,10 @@
 <p>杀死进程：<code>killall 进程名</code></p>
 </li>
 <li><p>查看端口：<code>lsof -i:端口号</code></p>
+</li>
+<li><p>查看CPU信息：<code>cat /proc/cpuinfo</code>      # 查看CPU信息</p>
+</li>
+<li><p>查看系统负载：<code>cat /proc/loadavg</code>      # 查看系统负载</p>
 </li>
 </ul>
 <ul>
@@ -589,7 +595,7 @@
 <li>显示已加载的系统的模块：<code>lsmod</code></li>
 </ul>
 <ul>
-<li><p>查看版本：<code>cat /etc/redhat-release</code>(目测是隐藏文件)或者<code>uname -a（centos）</code></p>
+<li><p>查看版本：<code>cat /etc/redhat-release</code>(目测是隐藏文件)或者<code>uname -a（centos）</code> 或者<code>lsb_release -a</code></p>
 </li>
 <li><p>查看应用：<code>rpm -qa | grep [软件名]</code>或<code>rpm -q [软件名]</code></p>
 </li>
@@ -611,7 +617,11 @@
 </li>
 <li><p>gcc：<code>apt-get install build-essential</code> 这个命令会将所有c语言的开发包安装好，包含了gcc make gdb和lib函数库很多工具，build-essential是c语言的开发包</p>
 </li>
+<li><p>apt命令：<code>apt-get install --reinstall 软件名</code> 重新安装</p>
+</li>
 </ul>
+<p>  ​        <code>apt-get remove 软件名</code>卸载软件</p>
+<p>  ​        <code>apt-get clean</code>清除deb包</p>
 <hr>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="Debian下-1"><a href="#Debian下-1" class="headerlink" title="Debian下"></a>Debian下</h3><ul>
 <li>运行脚本：先要有执行权限：<code>chmod u+x [文件名]</code>，执行：<code>bash [文件名.sh]或者./[文件名]</code></li>
@@ -626,6 +636,42 @@
 <p>试了上面的源感觉不行，所以重新找的源：<a href="https://blog.csdn.net/yjk13703623757/article/details/78943345/" target="_blank" rel="noopener">https://blog.csdn.net/yjk13703623757/article/details/78943345/</a></p>
 <p>其他源：</p>
 <p>jessie：deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-updates main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-backports main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> jessie-backports main non-free contrib<br>deb <a href="http://mirrors.163.com/debian-security/" target="_blank" rel="noopener">http://mirrors.163.com/debian-security/</a> jessie/updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian-security/" target="_blank" rel="noopener">http://mirrors.163.com/debian-security/</a> jessie/updates main non-free contrib</p>
+</li>
+</ul>
+<h3 id="CentOS下"><a href="#CentOS下" class="headerlink" title="CentOS下"></a>CentOS下</h3><ul>
+<li>network相关，<a href="https://blog.csdn.net/weiyongle1996/article/details/75128239，如果网络首选的网桥br0的话，一定要注意其他网卡的配置，不能出现dchp，因为centos刚开始的时候要配置静态的IP，网桥要和其他网卡IP保持一致，dchp和static不一定会保持一致，所以导致无法上网，然后遇到网络状态是active但是依然无法上网怎么办，这时候考虑是否IP冲突，解决冲突之后就可上网///10.19更新，eth1里面dhcp会有影响，所以将/etc/sysconfig/network-script文件夹下的ifcfg-eth1改名为ifcfg-eth1.bak，如果改成ifcfg-eth1.BAK的话就不行，只能改成小写" target="_blank" rel="noopener">https://blog.csdn.net/weiyongle1996/article/details/75128239，如果网络首选的网桥br0的话，一定要注意其他网卡的配置，不能出现dchp，因为centos刚开始的时候要配置静态的IP，网桥要和其他网卡IP保持一致，dchp和static不一定会保持一致，所以导致无法上网，然后遇到网络状态是active但是依然无法上网怎么办，这时候考虑是否IP冲突，解决冲突之后就可上网///10.19更新，eth1里面dhcp会有影响，所以将/etc/sysconfig/network-script文件夹下的ifcfg-eth1改名为ifcfg-eth1.bak，如果改成ifcfg-eth1.BAK的话就不行，只能改成小写</a></li>
+</ul>
+<h3 id="Ubuntu下"><a href="#Ubuntu下" class="headerlink" title="Ubuntu下"></a>Ubuntu下</h3><ul>
+<li><p>Ubuntu更新源，可用源：</p>
+<p>163源：#163 guangdong </p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/trusty" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty</a> main restricted universe multiverse </p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/trusty-security" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-security</a> main restricted universe multiverse </p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/trusty-updates" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-updates</a> main restricted universe multiverse </p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/trusty-proposed" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-proposed</a> main restricted universe multiverse </p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/trusty-backports" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-backports</a> main restricted universe multiverse </p>
+<p>deb-src <a href="http://mirrors.163.com/ubuntu/trusty" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty</a> main restricted universe multiverse </p>
+<p>deb-src <a href="http://mirrors.163.com/ubuntu/trusty-security" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-security</a> main restricted universe multiverse </p>
+<p>deb-src <a href="http://mirrors.163.com/ubuntu/trusty-updates" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-updates</a> main restricted universe multiverse </p>
+<p>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> trusty-proposed main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.163.com/ubuntu/trusty-backports" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/trusty-backports</a> main restricted universe multiverse</p>
+<p>阿里源：</p>
+<p>deb-src <a href="http://archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://archive.ubuntu.com/ubuntu</a> xenial main restricted</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial</a> main restricted </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/xenial" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial</a> main restricted multiverse universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-updates" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-updates</a> main restricted </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/xenial-updates" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-updates</a> main restricted multiverse universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial</a> universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-updates" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-updates</a> universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> xenial multiverse </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> xenial-updates multiverse </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-backports" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-backports</a> main restricted universe multiverse </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/xenial-backports" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-backports</a> main restricted universe multiverse </p>
+<p>deb <a href="http://archive.canonical.com/ubuntu" target="_blank" rel="noopener">http://archive.canonical.com/ubuntu</a> xenial partner </p>
+<p>deb-src <a href="http://archive.canonical.com/ubuntu" target="_blank" rel="noopener">http://archive.canonical.com/ubuntu</a> xenial partner </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> main restricted </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> main restricted multiverse universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> universe </p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> multiverse</p>
 </li>
 </ul>
 <hr>
@@ -866,7 +912,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -877,7 +923,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -888,7 +934,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -994,7 +1040,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本指令"><span class="nav-number">1.1.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装软件"><span class="nav-number">1.2.</span> <span class="nav-text">安装软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下"><span class="nav-number">1.2.1.</span> <span class="nav-text">Debian下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.3.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Debian下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见脚本"><span class="nav-number">1.4.</span> <span class="nav-text">常见脚本</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本指令"><span class="nav-number">1.1.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装软件"><span class="nav-number">1.2.</span> <span class="nav-text">安装软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下"><span class="nav-number">1.2.1.</span> <span class="nav-text">Debian下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.3.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian下-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Debian下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS下"><span class="nav-number">1.3.2.</span> <span class="nav-text">CentOS下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu下"><span class="nav-number">1.3.3.</span> <span class="nav-text">Ubuntu下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见脚本"><span class="nav-number">1.4.</span> <span class="nav-text">常见脚本</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1044,7 +1090,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共26.0k字</span>
+      <span class="post-count">博客全站共26.9k字</span>
   </div>
 
   <br/>
