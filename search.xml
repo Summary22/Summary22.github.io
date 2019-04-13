@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CentOS安装]]></title>
+    <url>%2F2019%2F04%2F13%2FCentOS%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[##CentOS系统安装 ​ 做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图） ##进行系统配置：1.配置物理网卡（修改物理网卡为ethX名字） ​ vi /etc/default/grub ​ 将“net.ifnames=0 biosdevname=0 ”写入到GRUBCMDLINELINUX：GRUB_CMDLINE_LINUX=”crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet” 2.分情况执行相应命令，引导为Legacy或UEFI，在boot界面可查看引导方式： ​ Legacy：grub2-mkconfig -o /boot/grub2/grub.cfg ​ UEFI：grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg 3.然后将/etc/sysconfig/network-scripts/目录下的ifcfg-XXX xxx为原来的网卡名。像网卡名为ifcfg-en1s1pf0这样的,重命名为ifcfg-eth0。 ​ mv ifcfg-en1s1pf0 ifcfg-eth0 ​ ifcfg-en1s1pfX 重命名为ifcfg-ethX, X为数字。 修改这这些配置文件名，将里面旧网卡名改为ethX。然后重启服务器。 ##修改IPcentos默认的是没有自动开启网络，所以要配置IP地址，网关和DNS cd /etc/sysconfig/network-scripts/ 网线插在eth0上就修改ifcfg-eth0，vi ifcfg-eth0 ​ TYPE=Ethernet ​ BOOTPROTO=static ​ IPADDR=172.20.16.17 ​ NETMASK=255.255.0.0 ​ NETWORK=172.20.0.0 ​ GATEWAY=172.20.1.1 ​ DEFROUTE=yes ​ PEERDNS=yes ​ PEERROUTES=yes ​ IPV4_FAILURE_FATAL=no ​ IPV6INIT=yes ​ IPV6_AUTOCONF=yes ​ IPV6_DEFROUTE=yes ​ IPV6_PEERDNS=yes ​ IPV6_PEERROUTES=yes ​ IPV6_FAILURE_FATAL=no ​ NAME=eth0 ​ UUID=f91ff0db-7c64-4dae-b9d8-d54686af7cef ​ DEVICE=eth0 ​ ONBOOT=yes ​ DNS1=180.76.76.76 ​ DNS2=114.114.114.114 重启网络：systemctl restart network或者service network restart或者/etc/init.d/network restart 参考链接：https://www.osyunwei.com/archives/7829.html ##关闭防火墙连接Xshell:其实用XShell更好一点，可以开着虚拟机然后XShell连，更改sshd_config文件使得远程能连接上，PermitRootLogin yes那个选项把前面的/#号去掉 关闭防火墙：systemctl disable firewalld.service ##更新源wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repowget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo然后yum update ##安装ifconfig要想使用ifconfig和route可以通过两条指令yum install net-tools#安装 infconfigyum install traceroute#安装 traceroute 其他安装：pippip不在centos的yum源里面，先安装epel源：1.安装rpm包：yum -y install epel-release2.查看并更新源：文件在/etc/yum.repos.d文件夹下面，两个repo文件更新源：yum clean all &amp;&amp; yum makecache然后安装pip:yum install python-pip另：查看防火墙的状态并关闭，centos7以上：firewall-cmd –state或者用：systemctl status firewalld.service关闭：systemctl stop firewalld.service禁止开机启动：systemctl disable firewalld.service]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[gdb instruction]]></title>
     <url>%2F2018%2F09%2F29%2Fgdb-instruction%2F</url>
     <content type="text"><![CDATA[About GDB GDB, the GNU Project debugger, allows you to see what is going on `inside’ another program while it executes – or what another program was doing at the moment it crashed. g++相关：https://www.cnblogs.com/lidan/archive/2011/05/25/2239517.html 基本指令： list/l 列出源代码（十行） next/n 跳过直接执行不进入函数内部（像OD里面的F8） step/s 进入函数体（像OD里面的F7） si 一条一条指令单步的调试 backtrace/bt 查看函数调用的栈帧，可以看到栈帧号 info/i 查看函数局部变量值，一般可写i locals也可以先bt然后再输入i locals还可以f [栈帧号]然后i locals看这个函数里面的局部变量值 info registers 可以显示所有寄存器的当前值 frame/f [栈帧号] 可产看其他函数体的局部变量值，配合i locals使用 finish 结束 set $var 修改变量值 display $var 每次停下的时候显示var值，使用undisplay取消 break [行号] 在某行设置断点 i breakpoints 显示断点信息 delete breakpoints [号] 删除断点，不加断点号就是删除所有 disable breakpoints [号] 禁用某个断点，不加断点号就是禁用所有 continue 继续运行 run 执行 x 查看输入 x/7b input表示每个字节一组（b），7表示打印7组 watch 设置观察点 例如watch input[i] 每次运行查看input数组里面i的值 i watch查看设置了哪些断点 p print，p $esp可以打印寄存器中的值 gcc -c 目标文件 将.c文件编译成.o文件，也就是目标文件 ar rs 打包静态库，用法ar rs 静态库名 1.o 2.o … ar命令类似于tar命令，起一个打包的作用，但是把目标文件打包成静态库只能用ar命令而不能用tar命令。选项r表示将后面的文件列表添加到文件包，如果文件包不存在就创建它，如果文件包中已有同名文件就替换成新的。s是专用于生成静态库的，表示为静态库创建索引，这个索引被链接器使用。 ranlib ar r 之后，再ranlib 静态库名等同于上面的指令 gcc -print-search-dirs 查看默认目录 gcc -c -fPIC *.c 编译共享库的时候要加上fPIC选项 gcc -S main.c 生成汇编文件 gcc -c main.s 生成目标文件 一些注意事项：1.如果某个函数的变量发生越界错误，可能不会立刻发生错误，而是在函数返回时产生段错误]]></content>
@@ -75,18 +87,6 @@
       <tags>
         <tag>Seetaface</tag>
         <tag>VS2013</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CentOS��װ]]></title>
-    <url>%2F2018%2F06%2F11%2Fcentos%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[##CentOSϵͳ��װ ? ���þ���֮��f2����bios���޸����Ȼ������֮����밲װҳ�棬���޸�ʱ����Ȼ������Ҫ�ľ��Ƿ��������֮ǰ��Ӳ��������ϵͳ�Ļ���Ҫ�������ɾ����Ȼ�����»��ַ����������Ļ�������Ч�������ڻ��ַ�����ʱ��һ��Ҫע���ļ���ʽ������Ҫ����Ȼ��װ���У��ǵ���ͼ�� ##����ϵͳ���ã�1.���������������޸���������ΪethX���֣� ? vi /etc/default/grub ? ����net.ifnames=0 biosdevname=0 ��д�뵽GRUBCMDLINELINUX��GRUB_CMDLINE_LINUX=”crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet” 2.�����ִ����Ӧ�������ΪLegacy��UEFI����boot����ɲ鿴������ʽ�� ? Legacy��grub2-mkconfig -o /boot/grub2/grub.cfg ? UEFI��grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg 3.Ȼ��/etc/sysconfig/network-scripts/Ŀ¼�µ�ifcfg-XXX xxxΪԭ��������������������Ϊifcfg-en1s1pf0������,������Ϊifcfg-eth0�� ? mv ifcfg-en1s1pf0 ifcfg-eth0 ? ifcfg-en1s1pfX ������Ϊifcfg-ethX, XΪ���֡� �޸�����Щ�����ļ��������������������ΪethX��Ȼ������������� ##�޸�IPcentosĬ�ϵ���û���Զ��������磬����Ҫ����IP��ַ�����غ�DNS cd /etc/sysconfig/network-scripts/ ���߲���eth0�Ͼ��޸�ifcfg-eth0��vi ifcfg-eth0 ? TYPE=Ethernet ? BOOTPROTO=static ? IPADDR=172.20.16.17 ? NETMASK=255.255.0.0 ? NETWORK=172.20.0.0 ? GATEWAY=172.20.1.1 ? DEFROUTE=yes ? PEERDNS=yes ? PEERROUTES=yes ? IPV4_FAILURE_FATAL=no ? IPV6INIT=yes ? IPV6_AUTOCONF=yes ? IPV6_DEFROUTE=yes ? IPV6_PEERDNS=yes ? IPV6_PEERROUTES=yes ? IPV6_FAILURE_FATAL=no ? NAME=eth0 ? UUID=f91ff0db-7c64-4dae-b9d8-d54686af7cef ? DEVICE=eth0 ? ONBOOT=yes ? DNS1=180.76.76.76 ? DNS2=114.114.114.114 �������磺systemctl restart network����service network restart����/etc/init.d/network restart �ο����ӣ�https://www.osyunwei.com/archives/7829.html ##�رշ���ǽ����Xshell:��ʵ��XShell����һ�㣬���Կ��������Ȼ��XShell��������sshd_config�ļ�ʹ��Զ���������ϣ�PermitRootLogin yes�Ǹ�ѡ���ǰ���/#��ȥ�� �رշ���ǽ��systemctl disable firewalld.service ##����Դwget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repowget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repoȻ��yum update ##��װifconfigҪ��ʹ��ifconfig��route����ͨ������ָ��yum install net-tools#��װ infconfigyum install traceroute#��װ traceroute ������װ��pippip����centos��yumԴ���棬�Ȱ�װepelԴ��1.��װrpm����yum -y install epel-release2.�鿴������Դ���ļ���/etc/yum.repos.d�ļ������棬����repo�ļ�����Դ��yum clean all &amp;&amp; yum makecacheȻ��װpip:yum install python-pip���鿴����ǽ��״̬���رգ�centos7���ϣ�firewall-cmd –state�����ã�systemctl status firewalld.service�رգ�systemctl stop firewalld.service��ֹ�������systemctl disable firewalld.service]]></content>
-      <categories>
-        <category>��ά</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
