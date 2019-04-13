@@ -99,7 +99,7 @@
 <meta property="og:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    address xx.xx.xx.xx ​">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p6flo4av7.bkt.clouddn.com/openvpn.png">
-<meta property="og:updated_time" content="2018-07-02T02:18:25.332Z">
+<meta property="og:updated_time" content="2018-12-03T02:31:15.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debian8搭建OpenVPN">
 <meta name="twitter:description" content="先搭建好debian8的环境，然后确保能上网  ping www.baidu.com  内网最好改为静态ip，修改静态IP方法： 第一步：  vi /etc/network/interfaces auto eth0 # iface eth0 inet dhcp # 这为原来存在的注释掉，保存为下面 iface eth0 inet static ​    address xx.xx.xx.xx ​">
@@ -387,8 +387,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-02T10:18:25+08:00">
-                2018-07-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-03T10:31:15+08:00">
+                2018-12-03
               </time>
             
           </span>
@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,786
+                  1,871
                 </span>
               
 
@@ -538,6 +538,13 @@
 <p>date -s 01/01/2000</p>
 <p>date -s 14:00</p>
 <p>hwclock -w #时间写入本地</p>
+</blockquote>
+<p><strong>只改时间能安装成功这一步可不做：时区也可能导致安装失败，修改时区</strong></p>
+<blockquote>
+<p>timedatectl list-timezones |grep Shanghai   #实验室Debian8默认美国芝加哥时间，时区可以修改为上海，这条指令是显示上海在哪个时区，结果会是Asia/Shanghai</p>
+</blockquote>
+<blockquote>
+<p>timedatectlset-timezone Asia/Shanghai    #修改时区</p>
 </blockquote>
 <ul>
 <li>正式安装OpenVPN</li>
@@ -794,8 +801,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/02/Seetaface/" rel="prev" title="Seetaface">
-                Seetaface <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/centos安装/" rel="prev" title="CentOS��װ">
+                CentOS��װ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -913,7 +920,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -924,7 +931,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -935,7 +942,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1067,7 +1074,7 @@ var jiathis_config={
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1091,7 +1098,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共27.1k字</span>
+      <span class="post-count">博客全站共28.2k字</span>
   </div>
 
   <br/>

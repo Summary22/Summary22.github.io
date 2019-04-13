@@ -99,7 +99,7 @@
 <meta property="og:description" content="自己在使用linux时候的总结，不定时更新">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://noblestaspiration.net/2018/08/25/Linux基础/C:/Users/liyuf/AppData/Local/Temp/1543320226149.png">
-<meta property="og:updated_time" content="2018-11-27T13:31:34.733Z">
+<meta property="og:updated_time" content="2019-04-12T09:41:44.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="自己在使用linux时候的总结，不定时更新">
@@ -387,8 +387,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-27T21:31:34+08:00">
-                2018-11-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-12T17:41:44+08:00">
+                2019-04-12
               </time>
             
           </span>
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,705
+                  4,181
                 </span>
               
 
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  18
                 </span>
               
             </div>
@@ -512,7 +512,16 @@
 <li><strong>which</strong>，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果，可以看到某个命令是否存在，以及执行的到底是哪个位置的命令</li>
 <li>总结：<strong>which</strong>       查看可执行文件的位置<br><strong>whereis</strong>        查看文件的位置<br><strong>locate</strong>        配合数据库查看文件位置<br><strong>find</strong>       实际搜寻硬盘查询文件名称</li>
 </ul>
-<p>参考链接：<a href="https://www.cnblogs.com/kex1n/p/5233821.html" target="_blank" rel="noopener">https://www.cnblogs.com/kex1n/p/5233821.html</a></p>
+<p>以上参考链接：<a href="https://www.cnblogs.com/kex1n/p/5233821.html" target="_blank" rel="noopener">https://www.cnblogs.com/kex1n/p/5233821.html</a></p>
+</li>
+<li><p>查找带某个字符的所有文件：</p>
+<p><code>grep -rn &quot;hello,world!&quot; *</code></p>
+<p>* : 表示当前目录所有文件，也可以是某个文件名</p>
+<p>-r 是递归查找</p>
+<p>-n 是显示行号</p>
+<p>-R 查找所有文件包含子目录</p>
+<p>-i 忽略大小写</p>
+<p><code>find -type f -name &#39;*.php&#39; | xargs grep &#39;GroupRecord&#39;</code> xargs配合grep查找</p>
 </li>
 <li><p>修改权限：<code>chmod [-cfvR][--help] [--version][文件名]</code></p>
 <p>参数详解：<strong>mode : 权限设定字串，格式如下 : [ugoa…][[+-=][rwxX]…][,…]，其中 u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。</strong></p>
@@ -571,14 +580,22 @@
 <p><strong>-e:显示所有进程</strong></p>
 <p><strong>-f:全格式</strong></p>
 <p><strong>| ：管道命令，ps与grep同时执行</strong><br><strong>grep（Global Regular Expression Print）：查找，强大的文本搜索工具，使用正则表达式搜索文本并把匹配的行打印出来</strong></p>
+<p><code>cat /proc/进程号/maps</code> 查看虚拟地址空间</p>
 <p>E：假如现在正在mv文件但是没有进度条，可以ps -ef | grep mv来看是否移动完了</p>
 <p>杀死进程：<code>killall 进程名</code></p>
 </li>
 <li><p>查看端口：<code>lsof -i:端口号</code></p>
 </li>
-<li><p>查看CPU信息：<code>cat /proc/cpuinfo</code>      # 查看CPU信息</p>
+<li><p>查看CPU信息：<code>cat /proc/cpuinfo</code>      # 查看CPU信息，可以看到核心数</p>
 </li>
 <li><p>查看系统负载：<code>cat /proc/loadavg</code>      # 查看系统负载</p>
+</li>
+<li><p>查看CUP数：<code>cat /proc/cpuinfo |grep &quot;physical id&quot;|sort |uniq|wc -l</code></p>
+</li>
+<li><p>查看内核数：<code>cat /proc/cpuinfo |grep &quot;processor&quot;|wc -l</code></p>
+<p>具体看每个cpu对应的核心：<code>cat /proc/cpuinfo | grep physical | uniq -c</code></p>
+</li>
+<li><p>查看CPU型号和数量：<code>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</code></p>
 </li>
 </ul>
 <ul>
@@ -608,6 +625,8 @@
 <p>linux下各个文件目录的意思：<a href="https://www.jb51.net/LINUXjishu/32180.html" target="_blank" rel="noopener">https://www.jb51.net/LINUXjishu/32180.html</a></p>
 </li>
 <li><p>查看系统时间并且修改：<br>查看：当前：<code>data</code>，硬件时间：<code>hwclock</code><br>修改：<code>date -s “2018-08-24 10:45:10”</code><br>同步：<code>hwclock --systohc</code></p>
+<p>修改时区：<code>timedatectl list-timezones |grep Shanghai</code>- -结果<code>Asia/Shanghai</code></p>
+<p>​                <code>timedatectl set-timezone Asia/Shanghai</code></p>
 </li>
 </ul>
 <hr>
@@ -616,6 +635,10 @@
 </li>
 <li><p>vim：安装过程中如果遇到下面<code>遇到的问题</code>中第二个问题则先解决，然后<code>apt-get update&amp;apt-get upgrade</code><br>出现需要先安装<code>common</code>，则就是<code>apt-get remove vim-common</code>，然后再<code>apt-get install vim</code><br>参考链接：<a href="https://www.cnblogs.com/drfxiaoliuzi/p/4143933.html" target="_blank" rel="noopener">https://www.cnblogs.com/drfxiaoliuzi/p/4143933.html</a></p>
 <p>配置源的参考链接：<a href="https://blog.csdn.net/w6280190/article/details/80840728" target="_blank" rel="noopener">https://blog.csdn.net/w6280190/article/details/80840728</a></p>
+<p>gg：跳到第一行</p>
+<p>shift+g：跳到最后一行</p>
+<p>ddp：光标所在行与下一行进行交换</p>
+<p>xp：光标所在的字符与后面一个字符交换</p>
 </li>
 <li><p>gcc：<code>apt-get install build-essential</code> 这个命令会将所有c语言的开发包安装好，包含了gcc make gdb和lib函数库很多工具，build-essential是c语言的开发包</p>
 </li>
@@ -637,12 +660,12 @@
 <p>然后给CentOS添加rpm源</p>
 <blockquote>
 <p> wget dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm</p>
-<p>yum localinstall mysql-community-release-el6-5.noarch.rpm</p>
-<p>yum repolist all | grep mysql</p>
-<p>yum-config-manager –disable mysql55-community</p>
+<p> yum localinstall mysql-community-release-el6-5.noarch.rpm</p>
+<p> yum repolist all | grep mysql</p>
+<p> yum-config-manager –disable mysql55-community</p>
 <p> yum-config-manager –disable mysql56-community</p>
 <p> yum-config-manager –enable mysql57-community-dmr</p>
-<p>yum repolist enabled | grep mysql</p>
+<p> yum repolist enabled | grep mysql</p>
 </blockquote>
 <p>安装mysql</p>
 <blockquote>
@@ -669,9 +692,19 @@
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="Debian下-1"><a href="#Debian下-1" class="headerlink" title="Debian下"></a>Debian下</h3><ul>
 <li>运行脚本：先要有执行权限：<code>chmod u+x [文件名]</code>，执行：<code>bash [文件名.sh]或者./[文件名]</code></li>
 <li>apt-get install之后404 not found的话那就直接先update一下</li>
+<li>能ping通自己和网关，但是上不去网可能是路由表里面没有网关地址，route -n就可以查看，没有网关的话就直接添加就行：<code>route add defualt gw X.X.X.X</code> 这样再去看路由表里面应该就有网关，可以上网了 </li>
 </ul>
 <ul>
 <li><p>ping通自己的ip，ping不通网关，要不就是自己的网关设置错了，要不就是IP冲突，改网关子网掩码和IP试试，自己虚拟机的debian非常奇怪，网关居然是192.168.213.2，IP没有冲突但是网关设置成192.168.1.1就不行，子网掩码要设成24（这个问题有待商榷，这个可能是错误的，那台Debian有些问题）</p>
+</li>
+<li><p>ifconfig看不到eth0，ifconfig -a可以看到，很可能是没有设置MAC地址造成，执行下面几条命令，如果是新建虚拟机的话，造成原因可能是路由器</p>
+<blockquote>
+<p>ifconfig eth0 down</p>
+<p>ifconfig eth0 hw ether 00:00:AA:BB:CC:DD#随便写一个就行</p>
+<p>ifconfig eth0 up</p>
+<p>/etc/init.d/network restart</p>
+</blockquote>
+<p>这样就解决了</p>
 </li>
 <li><p>Debian安装缺少光盘源并且一直检测cdrom，打开/etc/apt/sources.list（最好先备份）文件，注释掉cdrom那一行，然后添加上163源或者其他源，然后再执行apt-get update和apt-get upgrade更新下deb仓库，这样以后再使用apt-get安装时就不会再搜寻cdrom了</p>
 <p>163源：deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze main non-free contrib<br>deb <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze-proposed-updates main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze main non-free contrib<br>deb-src <a href="http://mirrors.163.com/debian/" target="_blank" rel="noopener">http://mirrors.163.com/debian/</a> squeeze-proposed-updates main non-free contrib</p>
@@ -715,6 +748,20 @@
 <p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> main restricted multiverse universe </p>
 <p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> universe </p>
 <p>deb <a href="http://mirrors.aliyun.com/ubuntu/xenial-security" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/xenial-security</a> multiverse</p>
+</li>
+<li><p>初始安装的时候设置root密码是通过</p>
+<blockquote>
+<p>sudo passwd root</p>
+</blockquote>
+<p>然后输入密码既可以，另外修改hostname和静态IP必须要重启一下才能生效</p>
+</li>
+<li><p>配置ssh使其在远程能直接root登录</p>
+<blockquote>
+<p>apt-get install ssh</p>
+<p>/etc/init.d/ssh start  #启动</p>
+<p>vim /etc/ssh/sshd_config #找到PermitRootLogin without-password修改为PermitRootLogin yes</p>
+<p>/etc/init.d/ssh restart</p>
+</blockquote>
 </li>
 </ul>
 <hr>
@@ -955,7 +1002,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -966,7 +1013,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -977,7 +1024,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1109,7 +1156,7 @@ var jiathis_config={
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1133,7 +1180,7 @@ var jiathis_config={
   
   <div class="theme-info">
     <div class="powered-by"></div>
-      <span class="post-count">博客全站共27.1k字</span>
+      <span class="post-count">博客全站共28.2k字</span>
   </div>
 
   <br/>
