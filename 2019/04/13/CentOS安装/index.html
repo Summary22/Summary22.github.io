@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="##CentOS系统安装 ​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
+<meta name="description" content="CentOS系统安装​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
 <meta name="keywords" content="Linux,CentOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS安装">
 <meta property="og:url" content="http://noblestaspiration.net/2019/04/13/CentOS安装/index.html">
 <meta property="og:site_name" content="Summary&#39;s Blog">
-<meta property="og:description" content="##CentOS系统安装 ​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
+<meta property="og:description" content="CentOS系统安装​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T08:47:27.055Z">
+<meta property="og:updated_time" content="2019-04-13T09:07:25.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS安装">
-<meta name="twitter:description" content="##CentOS系统安装 ​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
+<meta name="twitter:description" content="CentOS系统安装​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）">
 
 
 
@@ -385,7 +385,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-13T16:47:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-13T17:07:25+08:00">
                 2019-04-13
               </time>
             
@@ -483,10 +483,9 @@
       
 
       
-        <p>##CentOS系统安装</p>
-<p>​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）</p>
+        <h2 id="CentOS系统安装"><a href="#CentOS系统安装" class="headerlink" title="CentOS系统安装"></a>CentOS系统安装</h2><p>​    做好镜像之后，f2进入bios，修改启动项，然后重启，之后进入安装页面，先修改时区，然后最重要的就是分区，如果之前的硬盘上面有系统的话，要将其分区删除，然后重新划分分区，这样的话才能生效，而且在划分分区的时候一定要注意文件格式（很重要），然后安装就行（记得配图）</p>
 <a id="more"></a>
-<p>##进行系统配置：<br>1.配置物理网卡（修改物理网卡为ethX名字）</p>
+<h2 id="进行系统配置："><a href="#进行系统配置：" class="headerlink" title="进行系统配置："></a>进行系统配置：</h2><p>1.配置物理网卡（修改物理网卡为ethX名字）</p>
 <p>​    vi /etc/default/grub</p>
 <p>​    将“net.ifnames=0 biosdevname=0 ”写入到GRUBCMDLINELINUX：GRUB_CMDLINE_LINUX=”crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet”</p>
 <p>2.分情况执行相应命令，引导为Legacy或UEFI，在boot界面可查看引导方式：</p>
@@ -496,7 +495,7 @@
 <p>​    mv ifcfg-en1s1pf0 ifcfg-eth0</p>
 <p>​    ifcfg-en1s1pfX 重命名为ifcfg-ethX, X为数字。</p>
 <p>修改这这些配置文件名，将里面旧网卡名改为ethX。然后重启服务器。</p>
-<p>##修改IP<br>centos默认的是没有自动开启网络，所以要配置IP地址，网关和DNS</p>
+<h2 id="修改IP"><a href="#修改IP" class="headerlink" title="修改IP"></a>修改IP</h2><p>centos默认的是没有自动开启网络，所以要配置IP地址，网关和DNS</p>
 <p>cd /etc/sysconfig/network-scripts/</p>
 <p>网线插在eth0上就修改ifcfg-eth0，vi ifcfg-eth0</p>
 <p>​    TYPE=Ethernet</p>
@@ -523,10 +522,10 @@
 <p>​    DNS2=114.114.114.114</p>
 <p>重启网络：systemctl restart network或者service network restart或者/etc/init.d/network restart</p>
 <p>参考链接：<a href="https://www.osyunwei.com/archives/7829.html" target="_blank" rel="noopener">https://www.osyunwei.com/archives/7829.html</a></p>
-<p>##关闭防火墙<br>连接Xshell:其实用XShell更好一点，可以开着虚拟机然后XShell连，更改sshd_config文件使得远程能连接上，PermitRootLogin yes那个选项把前面的/#号去掉</p>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>连接Xshell:其实用XShell更好一点，可以开着虚拟机然后XShell连，更改sshd_config文件使得远程能连接上，PermitRootLogin yes那个选项把前面的/#号去掉</p>
 <p>关闭防火墙：systemctl disable firewalld.service</p>
-<p>##更新源<br>wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/Centos-7.repo</a><br>wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/epel-7.repo</a><br>然后yum update</p>
-<p>##安装ifconfig<br>要想使用ifconfig和route可以通过两条指令<br>yum install net-tools#安装 infconfig<br>yum install traceroute#安装 traceroute</p>
+<h2 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h2><p>wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/Centos-7.repo</a><br>wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/epel-7.repo</a><br>然后yum update</p>
+<h2 id="安装ifconfig"><a href="#安装ifconfig" class="headerlink" title="安装ifconfig"></a>安装ifconfig</h2><p>要想使用ifconfig和route可以通过两条指令<br>yum install net-tools#安装 infconfig<br>yum install traceroute#安装 traceroute</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>安装：pip<br>pip不在centos的yum源里面，先安装epel源：<br>1.安装rpm包：yum -y install epel-release<br>2.查看并更新源：文件在/etc/yum.repos.d文件夹下面，两个repo文件<br>更新源：yum clean all &amp;&amp; yum makecache<br>然后安装pip:yum install python-pip<br>另：查看防火墙的状态并关闭，centos7以上：firewall-cmd –state<br>或者用：systemctl status firewalld.service<br>关闭：systemctl stop firewalld.service<br>禁止开机启动：systemctl disable firewalld.service</p>
 
       
@@ -881,7 +880,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS系统安装"><span class="nav-number">1.</span> <span class="nav-text">CentOS系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进行系统配置："><span class="nav-number">2.</span> <span class="nav-text">进行系统配置：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改IP"><span class="nav-number">3.</span> <span class="nav-text">修改IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">4.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新源"><span class="nav-number">5.</span> <span class="nav-text">更新源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ifconfig"><span class="nav-number">6.</span> <span class="nav-text">安装ifconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
